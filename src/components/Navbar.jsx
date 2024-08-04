@@ -42,7 +42,7 @@ export default function TempNavbar() {
           </div>
 
           {/** Donate Button */}
-          <button className="container hidden md:ml-12 md:block md:rounded md:bg-blue-600 md:px-4 md:pb-2 md:pt-1 md:font-bold md:text-white">
+          <button className="hidden md:ml-12 md:block md:rounded md:bg-blue-600 md:px-4 md:pb-2 md:pt-1 md:font-bold md:text-white">
             <NavLink to="/donate">Donate</NavLink>
           </button>
           <div className="md:hidden">
