@@ -4,15 +4,13 @@ import About from "./pages/About";
 import Donate from "./pages/Donate";
 import Events from "./pages/Events";
 import ContactUs from "./pages/ContactUs";
-import TempNavbar from "./components/TempNavbar"
-// import Navbar from "./components/Navbar";
-
+import Navbar from "./components/Navbar";
 
 export default function App() {
   return (
     <div className="bg-gray-50 h-screen">
       {/* <Navbar /> */}
-      <TempNavbar />
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/events" element={<Events />} />
