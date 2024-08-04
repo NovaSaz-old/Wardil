@@ -5,11 +5,11 @@ import Donate from "./pages/Donate";
 import Events from "./pages/Events";
 import ContactUs from "./pages/ContactUs";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 export default function App() {
   return (
     <div className="bg-gray-50 h-screen">
-      {/* <Navbar /> */}
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -18,6 +18,7 @@ export default function App() {
         <Route path="/about" element={<About />} />
         <Route path="/donate" element={<Donate />} />
       </Routes>
+      <Footer />
     </div>
   )
 }
