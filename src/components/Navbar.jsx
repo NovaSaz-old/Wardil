@@ -12,7 +12,7 @@ export default function TempNavbar() {
     }
 
     return (
-        <nav className="bg-gray-200 py-3 px-6">
+        <nav className="bg-gray-200 py-4 px-8">
             <div className="flex items-center justify-between">
 
                 { /** LOGO */}
