@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
-import logo from "../assets/images/logo.jpg"
+import logo from "../assets/logos/logo.png"
 
 
 export default function TempNavbar() {
@@ -12,13 +12,13 @@ export default function TempNavbar() {
     }
 
     return (
-        <nav className="bg-gray-200 p-4">
+        <nav className="bg-gray-200 py-3 px-6">
             <div className="flex items-center justify-between">
 
                 { /** LOGO */}
                 <div className="text-gray-900 text-2xl font-bold">
                     <NavLink to="/">
-                        <img src={logo} className="h-10" />
+                        <img src={logo} className="h-12" />
                     </NavLink>
                 </div>
 
