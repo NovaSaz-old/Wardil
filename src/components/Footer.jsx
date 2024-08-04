@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 
 export default function Footer() {
     return (
-        <footer className="bg-[#F5F5DC] h-screen p-10">
+        <footer className="bg-[#F5F5DC] h-[721] p-10">
             <div className="columns-3">
                 <div className="block">
                     <h1>Wardil</h1>
