@@ -9,7 +9,7 @@ import Footer from "./components/Footer";
 
 export default function App() {
   return (
-    <div className="h-screen bg-gray-50">
+    <div className="h-screen bg-gray-50 font-[Poppins]">
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />

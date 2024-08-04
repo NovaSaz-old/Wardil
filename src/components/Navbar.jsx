@@ -25,7 +25,7 @@ export default function TempNavbar() {
         <div className="flex">
           {/* Navigation Links Container */}
           <div className="flex">
-            <ul className="mt-1 hidden space-x-4 md:flex">
+            <ul className="mt-2 hidden space-x-4 md:flex">
               <li className="text-gray-900">
                 <NavLink to="/">Home</NavLink>
               </li>
@@ -42,7 +42,7 @@ export default function TempNavbar() {
           </div>
 
           {/** Donate Button */}
-          <button className="hidden md:ml-12 md:block md:rounded md:bg-blue-600 md:px-4 md:pb-2 md:pt-1 md:font-bold md:text-white">
+          <button className="hidden md:ml-12 md:block md:rounded md:bg-blue-600 md:px-4 md:py-2 md:font-bold md:text-white">
             <NavLink to="/donate">Donate</NavLink>
           </button>
           <div className="md:hidden">
