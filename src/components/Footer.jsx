@@ -3,24 +3,32 @@ import logo from "../assets/logos/logo.png";
 
 export default function FooterTest() {
   return (
-    <footer className="mt-2 bg-[#F5F5DC] p-28">
-      {/** Top part */}
-      <div className="grid grid-cols-3 justify-center gap-16">
-        {/** Left */}
-
+    <footer className="mt-2 bg-[#F5F5DC] p-8 md:p-16">
+      {" "}
+      {/* Added md:p-16 for smaller padding on mobile */}
+      {/* Top part */}
+      <div className="grid grid-cols-1 justify-center gap-16 md:grid-cols-3 md:gap-8">
+        {" "}
+        {/* Changed to grid-cols-1 for mobile and added md:gap-8 */}
+        {/* Left */}
         <div className="">
           <img className="h-32" src={logo} alt="Wardil logo" />
-          <p className="mt-4 text-lg">
+          <p className="mt-4 text-lg md:text-base">
+            {" "}
+            {/* Added md:text-base for smaller text on mobile */}
             Donate and help other people around the world
           </p>
         </div>
-
-        {/** Mid */}
-        <div>
+        {/* Mid */}
+        <div className="md:mt-8">
+          {" "}
+          {/* Added md:mt-8 for margin top on mobile */}
           <div>
             <h1 className="text-3xl font-semibold">{`Navigation's`}</h1>
             <hr className="mt-3 w-1/4 border-t-2 border-gray-500" />
-            <ul className="mt-4">
+            <ul className="mt-4 md:mt-2">
+              {" "}
+              {/* Added md:mt-2 for smaller margin top on mobile */}
               <li>
                 <Link to="/faq">FAQ</Link>
               </li>
@@ -34,7 +42,7 @@ export default function FooterTest() {
                 <Link to="/feedback">Feedback</Link>
               </li>
               <li>
-                <Link to="/join-our-community"></Link>Join our community
+                <Link to="/join-our-community">Join our community</Link>
               </li>
               <li>
                 <Link to="/events">Events</Link>
@@ -42,18 +50,22 @@ export default function FooterTest() {
             </ul>
           </div>
         </div>
-
-        {/** Right */}
-        <div className="text-left">
+        {/* Right */}
+        <div className="text-left md:mt-8">
+          {" "}
+          {/* Added md:mt-8 for margin top on mobile */}
           <h1 className="text-3xl font-semibold">Stay Connected</h1>
           <hr className="mt-3 w-1/4 border-t-2 border-gray-500" />
-          <p className="mt-4">
-            to ensure that you receive all the latest news and updates from us,
-            subscribe to mailing list!
+          <p className="mt-4 md:text-base">
+            {" "}
+            {/* Added md:text-base for smaller text on mobile */}
+            To ensure that you receive all the latest news and updates from us,
+            subscribe to our mailing list!
           </p>
-
-          {/** Email subscription form */}
-          <form className="mt-16">
+          {/* Email subscription form */}
+          <form className="mt-16 md:mt-8">
+            {" "}
+            {/* Added md:mt-8 for smaller margin top on mobile */}
             <input
               type="email"
               className="w-full border-b-2 border-gray-500 bg-[#F5F5DC] p-2 focus:outline-none"
@@ -65,19 +77,25 @@ export default function FooterTest() {
           </form>
         </div>
       </div>
-      {/** Bottom part */}
-      <div className="mt-20">
-        <p className="w-1/2">
+      {/* Bottom part */}
+      <div className="mt-20 md:mt-8">
+        {" "}
+        {/* Added md:mt-8 for smaller margin top on mobile */}
+        <p className="w-full md:w-1/2">
+          {" "}
+          {/* Changed w-1/2 to w-full for mobile */}
           At Hope Raiser, we are dedicated to making a positive impact in the
-          lives of those we serve. We belive that every individual has the power
-          to create society.
+          lives of those we serve. We believe that every individual has the
+          power to create society.
         </p>
         <hr className="mt-16 border-t-2 border-gray-500" />
         <div className="mt-10 flex justify-between">
           <p>©NovaSaz.com 2023. All Rights Reserved.</p>
           <div>
             <Link to="terms-of-use">Terms Of Use</Link>
-            <Link to="terms-privacy" className="ml-16">
+            <Link to="terms-privacy" className="ml-4 md:ml-8">
+              {" "}
+              {/* Added md:ml-8 for larger spacing on mobile */}
               Terms & Privacy
             </Link>
           </div>
