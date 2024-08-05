@@ -3,7 +3,7 @@ import logo from "../assets/logos/logo.png";
 
 export default function FooterTest() {
   return (
-    <footer className="bg-[#F5F5DC] p-28">
+    <footer className="mt-2 bg-[#F5F5DC] p-28">
       {/** Top part */}
       <div className="grid grid-cols-3 justify-center gap-16">
         {/** Left */}
@@ -51,6 +51,18 @@ export default function FooterTest() {
             to ensure that you receive all the latest news and updates from us,
             subscribe to mailing list!
           </p>
+
+          {/** Email subscription form */}
+          <form className="mt-16">
+            <input
+              type="email"
+              className="w-full border-b-2 border-gray-500 bg-[#F5F5DC] p-2 focus:outline-none"
+              placeholder="Email Address"
+            />
+            <button className="ml-auto mt-4 block rounded-md bg-blue-600 px-8 py-4 font-bold text-white">
+              Subscribe
+            </button>
+          </form>
         </div>
       </div>
       {/** Bottom part */}
@@ -61,6 +73,15 @@ export default function FooterTest() {
           to create society.
         </p>
         <hr className="mt-16 border-t-2 border-gray-500" />
+        <div className="mt-10 flex justify-between">
+          <p>©NovaSaz.com 2023. All Rights Reserved.</p>
+          <div>
+            <Link to="terms-of-use">Terms Of Use</Link>
+            <Link to="terms-privacy" className="ml-16">
+              Terms & Privacy
+            </Link>
+          </div>
+        </div>
       </div>
     </footer>
   );
