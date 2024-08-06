@@ -3,7 +3,7 @@ import logo from "../assets/logos/logo.png";
 
 export default function FooterTest() {
   return (
-    <footer className="mt-2 bg-[#F5F5DC] p-8 md:p-16">
+    <footer className="bg-[#F5F5DC] p-8 md:px-16 md:py-10">
       {" "}
       {/* Added md:p-16 for smaller padding on mobile */}
       {/* Top part */}
@@ -23,7 +23,7 @@ export default function FooterTest() {
         <div className="md:mt-8">
           {" "}
           {/* Added md:mt-8 for margin top on mobile */}
-          <div>
+          <div className="md:ml-16">
             <h1 className="text-3xl font-semibold">{`Navigation's`}</h1>
             <hr className="mt-3 w-1/4 border-t-2 border-gray-500" />
             <ul className="mt-4 md:mt-2">
@@ -64,11 +64,10 @@ export default function FooterTest() {
           </p>
           {/* Email subscription form */}
           <form className="mt-16 md:mt-8">
-            {" "}
             {/* Added md:mt-8 for smaller margin top on mobile */}
             <input
               type="email"
-              className="w-full border-b-2 border-gray-500 bg-[#F5F5DC] p-2 focus:outline-none"
+              className="w-full border-b-2 border-gray-500 bg-[#F5F5DC] p-1 focus:outline-none"
               placeholder="Email Address"
             />
             <button className="ml-auto mt-4 block rounded-md bg-blue-600 px-8 py-4 font-bold text-white">
@@ -79,10 +78,8 @@ export default function FooterTest() {
       </div>
       {/* Bottom part */}
       <div className="mt-20 md:mt-8">
-        {" "}
         {/* Added md:mt-8 for smaller margin top on mobile */}
         <p className="w-full md:w-1/2">
-          {" "}
           {/* Changed w-1/2 to w-full for mobile */}
           At Hope Raiser, we are dedicated to making a positive impact in the
           lives of those we serve. We believe that every individual has the
@@ -91,10 +88,9 @@ export default function FooterTest() {
         <hr className="mt-16 border-t-2 border-gray-500" />
         <div className="mt-10 flex justify-between">
           <p>©NovaSaz.com 2023. All Rights Reserved.</p>
-          <div>
-            <Link to="terms-of-use">Terms Of Use</Link>
+          <div className="text-right">
+            <Link to="terms-of-use">Terms Of Use {` `}</Link>
             <Link to="terms-privacy" className="ml-4 md:ml-8">
-              {" "}
               {/* Added md:ml-8 for larger spacing on mobile */}
               Terms & Privacy
             </Link>
