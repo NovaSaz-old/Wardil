@@ -4,6 +4,7 @@ export default function Home() {
     <div className="bg-gray-50">
       {/** Hero Section */}
       <div className="px-8 py-4 md:mx-20 md:grid md:grid-cols-2 md:items-center md:justify-center md:gap-8 md:px-16 md:py-20">
+        {/** left part */}
         <div className="mb-8 mt-4">
           <h1 className="mb-4 mt-4 text-4xl font-bold md:mb-8 md:text-8xl">
             Kindness and charity can change lives
@@ -16,6 +17,7 @@ export default function Home() {
             Donate Now!
           </button>
         </div>
+        {/** right part */}
         <img src={heroImage} alt="heroImage" />
       </div>
     </div>
