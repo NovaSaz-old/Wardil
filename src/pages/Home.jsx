@@ -34,7 +34,7 @@ export default function Home() {
       </div>
 
       {/** Mid banner section */}
-      <div className="mx-3 my-2 grid grid-cols-2 gap-6 bg-[#F5F5DC] px-2 py-16 text-left text-sm shadow-sm md:mx-4 md:grid md:grid-cols-3 md:place-items-center md:gap-8 md:text-xl 2xl:mx-8 2xl:gap-16 2xl:p-24 2xl:text-left">
+      <div className="zf:gap-x-1 zf:px-2 zf:py-11 ss:pl-6 ss:pr-2 mx-3 my-2 grid grid-cols-2 bg-[#F5F5DC] py-12 text-left text-sm shadow-sm sm:py-16 sm:pl-8 md:mx-4 md:grid md:grid-cols-3 md:place-items-center md:gap-8 md:text-xl 2xl:mx-8 2xl:gap-16 2xl:p-24 2xl:text-left">
         <div style={{ width: "12rem" }} className="flex items-center">
           <img src={care} className="h-12" alt="Care - Brighter Tomorrow" />
           <h4 className="mx-[.35rem] flex flex-col text-left font-semibold leading-6">
@@ -42,7 +42,11 @@ export default function Home() {
           </h4>
         </div>
         <div style={{ width: "12rem" }} className="flex items-center">
-          <img src={helping} className="h-12" alt="Helping - Giving Hearts" />
+          <img
+            src={helping}
+            className="zf:h-11 sm:h-12"
+            alt="Helping - Giving Hearts"
+          />
           <h4 className="mx-[.35rem] flex flex-col text-left font-semibold leading-6">
             Giving<span>Hearts</span>
           </h4>
@@ -90,7 +94,7 @@ export default function Home() {
         <div style={{ width: "12rem" }} className="flex items-center">
           <img
             src={newspaper}
-            className="h-12"
+            className="zf:h-11 sm:h-12"
             alt="Care - Brighter Tomorrow"
           />
           <h4 className="mx-[.35rem] flex flex-col text-left font-semibold leading-6">
