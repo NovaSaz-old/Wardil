@@ -25,7 +25,7 @@ export default function AboutUsSection() {
             Our organization truly believes that byworking together, <br />
             <span>we can save more lives than ever before</span>
           </p>
-          <button className="h-12 w-36 rounded bg-blue-600 p-2 text-white shadow-lg md:shadow-md">
+          <button className="mx-auto h-12 w-36 rounded bg-blue-600 p-2 text-white shadow-lg md:ml-0 md:shadow-md">
             Discover More
           </button>
         </div>
