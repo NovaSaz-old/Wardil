@@ -13,11 +13,11 @@ export default function FooterTest() {
         {/* Left */}
         <div className="">
           <img className="h-32" src={logo} alt="Wardil logo" />
-          <p className="mt-4 text-lg md:text-base">
+          <h3 className="mt-4 text-xl font-semibold md:text-2xl">
             {" "}
             {/* Added md:text-base for smaller text on mobile */}
             Donate and help other people around the world
-          </p>
+          </h3>
         </div>
         {/* Mid */}
         <div className="md:mt-8">
