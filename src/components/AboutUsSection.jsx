@@ -1,10 +1,7 @@
 import SimpleCard from "../components/SimpleCard";
 import aboutUsSide from "../assets/images/image 2.png";
-import videoFrame from "../assets/images/video.png";
-import marketing from "../assets/homeSVGs/marketing.svg";
-import volunteers from "../assets/homeSVGs/volunteers.svg";
-import donations from "../assets/homeSVGs/donations.svg";
-import increase from "../assets/homeSVGs/increase.svg";
+import CampaignCard from "../components/CampaignCard.jsx";
+import VideoBanner from "./VideoBanner.jsx";
 
 export default function AboutUsSection() {
   return (
@@ -56,7 +53,7 @@ export default function AboutUsSection() {
             <p className="mb-1 mt-4 text-lg font-semibold text-blue-700">
               About us
             </p>
-            <h1 className="mb-4 text-6xl font-semibold">
+            <h1 className="mb-4 text-6xl font-semibold leading-[1.15]">
               Together for a world without poverty
             </h1>
             <h3 className="mt-8 text-3xl md:mt-4">
@@ -77,64 +74,30 @@ export default function AboutUsSection() {
       </div>
 
       {/** video section   ---  flex items-center justify-center text-center*/}
-      <div className="bg-[#F5F5DC] px-4 py-8 md:px-8 md:py-12">
-        <img src={videoFrame} className="mx-auto" />
-        <div className="mt-12 grid grid-cols-2 gap-x-4 md:grid-cols-4">
-          <div className="mb-8">
-            <img
-              src={marketing}
-              alt="marketing"
-              className="mx-auto rounded-[1.25rem] bg-blue-300 px-12 py-8 shadow-md shadow-slate-400 drop-shadow-sm"
-            />
-            <h4 className="mt-4 text-center text-lg font-semibold md:mx-36 md:text-left md:text-xl">
-              10000+
-              <br />
-              <span className="font-normal">
-                Fundraising campaing in all time
-              </span>
-            </h4>
-          </div>
-          <div className="mb-8">
-            <img
-              src={volunteers}
-              alt="marketing"
-              className="mx-auto rounded-[1.25rem] bg-green-900 px-12 py-8 shadow-md shadow-slate-400 drop-shadow-sm"
-            />
-            <h4 className="mt-4 text-center text-lg font-semibold md:mx-36 md:text-left md:text-xl">
-              1200 +
-              <br />
-              <span className="font-normal">
-                Our volunteers around the world
-              </span>
-            </h4>
-          </div>
-          <div className="mb-8">
-            <img
-              src={donations}
-              alt="marketing"
-              className="mx-auto rounded-[1.25rem] bg-yellow-300 px-12 py-8 shadow-md shadow-slate-400 drop-shadow-sm"
-            />
-            <h4 className="mt-4 text-center text-lg font-semibold md:mx-36 md:text-left md:text-xl">
-              $120M+
-              <br />
-              <span className="font-normal">
-                Raised and counting donations in all time
-              </span>
-            </h4>
-          </div>
-          <div className="mb-8">
-            <img
-              src={increase}
-              alt="marketing"
-              className="mx-auto rounded-[1.25rem] bg-[#FFC2B4] px-12 py-8 shadow-md shadow-slate-400 drop-shadow-sm"
-            />
-            <h4 className="mt-4 text-center text-lg font-semibold md:mx-36 md:text-left md:text-xl">
-              98%
-              <br />
-              <span className="font-normal">positive review from public</span>
-            </h4>
-          </div>
+      <VideoBanner />
+
+      {/** Help others section */}
+      <div className="p-4 md:p-12 xl:px-20">
+        <div className="mt-32 text-center">
+          <h3 className="text-xl font-medium leading-tight text-[#957E00]">
+            HELP OTHERS
+          </h3>
+          <h1 className="text-4xl font-semibold leading-tight">
+            Introducing Our Campaigns
+          </h1>
+          <p className="mt-4 leading-loose">
+            How to do something great to help others? We try our best to help
+            people in need. See our progress in numbers
+          </p>
         </div>
+        <div className="mt-8 flex flex-col place-items-center md:grid md:grid-cols-2 md:gap-12 lg:grid-cols-3 xl:gap-20">
+          <CampaignCard />
+          <CampaignCard />
+          <CampaignCard />
+        </div>
+        <button className="mx-auto mt-12 flex rounded bg-blue-600 px-4 py-2 text-center font-medium text-white">
+          See more
+        </button>
       </div>
     </div>
   );

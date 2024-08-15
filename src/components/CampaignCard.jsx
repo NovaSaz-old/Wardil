@@ -3,8 +3,8 @@ import cardImage from "../assets/images/cardImage.png";
 
 function CampaignCard() {
   return (
-    <div className="m-2 w-96 overflow-hidden rounded-lg bg-white shadow-md drop-shadow-md">
-      <div className="p-6">
+    <div className="m-2 w-80 overflow-hidden rounded-lg bg-white shadow-md drop-shadow-md xl:w-96">
+      <div className="p-4 xl:p-6">
         <img src={cardImage} className="mx-auto mb-4 w-full" />
         <h2 className="text-2xl font-semibold text-gray-900">
           Campaign to provide books for children
@@ -30,7 +30,7 @@ function CampaignCard() {
               <span className="ml-2 font-normal text-gray-700">$21000</span>
             </p>
           </div>
-          <button className="mt-4 w-full rounded bg-blue-500 px-4 py-2 text-xl font-semibold text-white hover:bg-blue-700">
+          <button className="mt-4 w-full rounded bg-blue-500 px-4 py-2 text-lg font-medium text-white hover:bg-blue-700">
             <Link to="/donate">Donate</Link>
           </button>
         </div>
