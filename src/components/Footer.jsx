@@ -70,7 +70,7 @@ export default function FooterTest() {
               className="w-full border-b-2 border-gray-500 bg-[#F5F5DC] p-1 focus:outline-none"
               placeholder="Email Address"
             />
-            <button className="ml-auto mt-4 block rounded-md bg-blue-600 px-8 py-4 font-bold text-white">
+            <button className="ml-auto mt-4 block rounded-md bg-blue-600 px-8 py-4 font-semibold text-white hover:bg-blue-700">
               Subscribe
             </button>
           </form>

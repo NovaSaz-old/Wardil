@@ -28,7 +28,7 @@ export default function AboutUsSection() {
             Our organization truly believes that byworking together, <br />
             <span>we can save more lives than ever before</span>
           </p>
-          <button className="mx-auto h-12 w-36 rounded bg-blue-600 p-2 text-white shadow-lg md:ml-0 md:shadow-md">
+          <button className="mx-auto h-12 w-36 rounded bg-blue-600 p-2 text-white shadow-lg hover:bg-blue-700 md:ml-0 md:shadow-md">
             Discover More
           </button>
         </div>
@@ -61,7 +61,7 @@ export default function AboutUsSection() {
               around the world, and it is our collective responsibility to
               address it.
             </h3>
-            <button className="mt-4 rounded bg-blue-600 px-4 py-2 text-white">
+            <button className="mt-4 rounded bg-blue-600 px-4 py-2 text-white hover:bg-blue-700">
               About Us
             </button>
           </div>
@@ -79,7 +79,7 @@ export default function AboutUsSection() {
       {/** Help others section */}
       <div className="p-4 md:p-12 xl:px-20">
         <div className="mt-32 text-center">
-          <h3 className="text-xl font-medium leading-tight text-[#957E00]">
+          <h3 className="text-2xl font-medium leading-tight text-[#957E00]">
             HELP OTHERS
           </h3>
           <h1 className="text-4xl font-semibold leading-tight">
@@ -95,7 +95,7 @@ export default function AboutUsSection() {
           <CampaignCard />
           <CampaignCard />
         </div>
-        <button className="mx-auto mt-12 flex rounded bg-blue-600 px-4 py-2 text-center font-medium text-white">
+        <button className="mx-auto mt-12 flex rounded bg-blue-600 px-4 py-2 text-center font-medium text-white hover:bg-blue-700">
           See more
         </button>
       </div>

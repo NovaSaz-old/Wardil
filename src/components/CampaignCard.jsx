@@ -30,7 +30,7 @@ function CampaignCard() {
               <span className="ml-2 font-normal text-gray-700">$21000</span>
             </p>
           </div>
-          <button className="mt-4 w-full rounded bg-blue-500 px-4 py-2 text-lg font-medium text-white hover:bg-blue-700">
+          <button className="mt-4 w-full rounded bg-blue-600 px-4 py-2 text-lg font-medium text-white hover:bg-blue-700">
             <Link to="/donate">Donate</Link>
           </button>
         </div>

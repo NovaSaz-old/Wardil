@@ -61,7 +61,9 @@ export default function VideoBanner() {
           <h4 className="mt-4 text-center text-lg font-semibold md:mx-36 md:text-xl">
             98%
             <br />
-            <span className="font-normal">positive review from public</span>
+            <span className="font-normal">
+              positive review from public locally and globally
+            </span>
           </h4>
         </div>
       </div>

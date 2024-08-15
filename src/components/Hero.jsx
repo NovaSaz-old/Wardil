@@ -30,7 +30,7 @@ export default function Hero() {
               Join us in creating a future where every life is valued by
               supporting our education, healthcare, and livelihood initiatives
             </p>
-            <button className="mt-6 rounded border-2 border-blue-700 bg-white px-4 py-2 font-semibold shadow-md">
+            <button className="mt-6 rounded border-2 border-blue-700 bg-white px-4 py-2 font-semibold shadow-md drop-shadow-sm hover:bg-blue-50">
               Donate Now!
             </button>
           </div>
