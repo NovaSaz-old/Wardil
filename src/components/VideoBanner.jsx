@@ -15,7 +15,7 @@ export default function VideoBanner() {
             alt="marketing"
             className="mx-auto rounded-[1.25rem] bg-blue-300 px-12 py-8 shadow-md shadow-slate-400 drop-shadow-sm"
           />
-          <h4 className="mt-4 text-center text-lg font-semibold md:mx-36 md:text-xl">
+          <h4 className="mt-4 text-center text-lg font-semibold md:px-8 md:text-xl">
             10000+
             <br />
             <span className="font-normal">
@@ -30,7 +30,7 @@ export default function VideoBanner() {
             alt="marketing"
             className="mx-auto rounded-[1.25rem] bg-green-900 px-12 py-8 shadow-md shadow-slate-400 drop-shadow-sm"
           />
-          <h4 className="mt-4 text-center text-lg font-semibold md:mx-36 md:text-xl">
+          <h4 className="mt-4 text-center text-lg font-semibold md:px-8 md:text-xl">
             1200 +
             <br />
             <span className="font-normal">Our volunteers around the world</span>
@@ -43,7 +43,7 @@ export default function VideoBanner() {
             alt="marketing"
             className="mx-auto rounded-[1.25rem] bg-yellow-300 px-12 py-8 shadow-md shadow-slate-400 drop-shadow-sm"
           />
-          <h4 className="mt-4 text-center text-lg font-semibold md:mx-36 md:text-xl">
+          <h4 className="mt-4 text-center text-lg font-semibold md:px-8 md:text-xl">
             $120M+
             <br />
             <span className="font-normal">
@@ -58,7 +58,7 @@ export default function VideoBanner() {
             alt="marketing"
             className="mx-auto rounded-[1.25rem] bg-[#FFC2B4] px-12 py-8 shadow-md shadow-slate-400 drop-shadow-sm"
           />
-          <h4 className="mt-4 text-center text-lg font-semibold md:mx-36 md:text-xl">
+          <h4 className="mt-4 text-center text-lg font-semibold md:px-8 md:text-xl">
             98%
             <br />
             <span className="font-normal">

@@ -14,12 +14,12 @@ export default function Hero() {
     <>
       <div>
         {/** Top hero part */}
-        <div className="px-8 py-4 md:mx-20 md:grid md:grid-cols-2 md:items-center md:justify-center md:gap-8 md:px-16 md:py-20">
+        <div className="px-8 py-4 md:grid md:grid-cols-2 md:place-items-center md:justify-center md:gap-8 md:py-20 lg:mx-8 lg:px-8 2xl:mx-20 2xl:px-16">
           {/** left part */}
           <div className="mb-8 mt-4">
             <h1
               style={{ textShadow: "1px 1px 2px rgba(0, 0, 0, 0.25)" }}
-              className="mb-4 mt-4 text-4xl font-bold lg:mb-8 lg:text-8xl"
+              className="mb-4 mt-4 text-4xl font-bold lg:mb-8 lg:text-7xl 2xl:text-8xl"
             >
               Kindness and charity can change lives
             </h1>
@@ -40,7 +40,7 @@ export default function Hero() {
       </div>
 
       {/** Mid hero part */}
-      <div className="zf:gap-x-1 zf:px-2 zf:py-11 ss:pl-6 ss:pr-2 mx-3 my-2 grid grid-cols-2 bg-[#F5F5DC] py-12 text-left text-sm shadow-sm sm:py-16 sm:pl-8 md:mx-4 md:grid md:grid-cols-3 md:place-items-center md:gap-8 md:text-xl 2xl:mx-8 2xl:gap-16 2xl:p-24 2xl:text-left">
+      <div className="mx-3 my-2 grid grid-cols-2 bg-[#F5F5DC] py-12 text-left text-sm shadow-sm zf:gap-x-1 zf:px-2 zf:py-11 ss:pl-6 ss:pr-2 sm:py-16 sm:pl-8 md:mx-4 md:grid md:grid-cols-3 md:place-items-center md:gap-8 md:text-xl 2xl:mx-8 2xl:gap-16 2xl:p-24 2xl:text-left">
         <div style={{ width: "12rem" }} className="flex items-center">
           <img src={care} className="h-12" alt="Care - Brighter Tomorrow" />
           <h4
