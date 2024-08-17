@@ -56,21 +56,21 @@ export default function AboutUsSection() {
             <p className="mb-1 mt-4 text-lg font-semibold text-blue-700">
               About us
             </p>
-            <h1 className="mb-4 text-4xl font-semibold leading-[1.15] lg:text-5xl xl:text-6xl">
+            <h1 className="text-4xl font-semibold leading-[1.15] lg:text-5xl xl:text-6xl">
               Together for a world without poverty
             </h1>
-            <h3 className="mt-8 text-xl md:mt-4 lg:text-2xl xl:text-3xl">
+            <h3 className="mt-4 text-xl md:mt-4 lg:text-2xl xl:mt-8 xl:text-3xl">
               Povert is a widespread issue that affects millions of people
               around the world, and it is our collective responsibility to
               address it.
             </h3>
-            <button className="mt-8 rounded bg-blue-600 px-4 py-2 text-white hover:bg-blue-700">
+            <button className="mt-6 rounded bg-blue-600 px-4 py-2 text-white hover:bg-blue-700">
               About Us
             </button>
           </div>
 
           {/** right column */}
-          <div className="mx-auto flex place-items-center justify-center text-center">
+          <div className="flex place-items-center justify-center text-center 2xl:ml-auto">
             <img src={aboutUsSide} alt="" />
           </div>
         </div>
