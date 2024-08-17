@@ -2,6 +2,7 @@ import SimpleCard from "../components/SimpleCard";
 import aboutUsSide from "../assets/images/image 2.png";
 import CampaignCard from "../components/CampaignCard.jsx";
 import VideoBanner from "./VideoBanner.jsx";
+import volunteers from "../assets/images/volunteers.png";
 
 export default function AboutUsSection() {
   return (
@@ -17,13 +18,13 @@ export default function AboutUsSection() {
           </h3>
           <h1
             style={{ textShadow: "1px 1px 2px rgba(0, 0, 0, 0.25)" }}
-            className="text-4xl font-bold xl:text-5xl"
+            className="text-4xl font-semibold xl:text-5xl"
           >
             Our objective is to aid the community
           </h1>
           <p
             style={{ textShadow: "1px 1px 2x rgba(0, 0, 0, 0.25)" }}
-            className="my-4 lg:text-lg"
+            className="my-4 text-lg"
           >
             Our organization truly believes that byworking together, we can save
             more lives than ever before.
@@ -59,7 +60,7 @@ export default function AboutUsSection() {
             <h1 className="text-4xl font-semibold leading-[1.15] lg:text-5xl xl:text-6xl">
               Together for a world without poverty
             </h1>
-            <h3 className="mt-4 text-xl md:mt-4 lg:text-2xl xl:mt-8 xl:text-3xl">
+            <h3 className="mt-4 text-lg md:mt-4 lg:text-2xl xl:mt-8 xl:text-3xl">
               Povert is a widespread issue that affects millions of people
               around the world, and it is our collective responsibility to
               address it.
@@ -91,12 +92,12 @@ export default function AboutUsSection() {
           <h1 className="text-4xl font-semibold leading-tight">
             Introducing Our Campaigns
           </h1>
-          <p className="mt-4 leading-loose">
+          <p className="mt-4 text-lg leading-loose">
             How to do something great to help others? We try our best to help
             people in need. See our progress in numbers
           </p>
         </div>
-        <div className="mt-8 flex flex-col place-items-center md:grid md:grid-cols-2 md:gap-12 lg:grid-cols-3 xl:gap-20">
+        <div className="mt-4 flex flex-col place-items-center md:grid md:grid-cols-2 md:gap-12 lg:mt-8 lg:grid-cols-3 xl:gap-20">
           <CampaignCard />
           <CampaignCard />
           <CampaignCard />
@@ -104,6 +105,32 @@ export default function AboutUsSection() {
         <button className="mx-auto mt-12 flex rounded bg-blue-600 px-4 py-2 text-center font-medium text-white hover:bg-blue-700">
           See more
         </button>
+        <hr className="mx-auto mt-12 flex w-full shadow-sm shadow-gray-50 drop-shadow-sm" />
+      </div>
+
+      {/** Bellow the campaign cards -> Volunteer section */}
+      <div
+        style={{ textShadow: "1px 1px 2px rgba(0, 0, 0, 0.25)" }}
+        className="grid grid-cols-1 place-items-center p-9 text-center lg:grid-cols-2 lg:gap-4 lg:p-10 lg:text-left xl:p-16 2xl:gap-8 2xl:p-32"
+      >
+        {/** Left side */}
+        <div className="">
+          <h3 className="text-2xl font-medium text-[#293A73]">Our Team</h3>
+          <p className="my-4 text-lg 2xl:text-xl">
+            Our mission is to make a significant difference in the lives of
+            others. We are dedicated to supporting those in need and invite you
+            to explore our measurable impact.
+          </p>
+          <h2 className="my-4 text-4xl font-semibold 2xl:text-5xl">
+            Meet Our Volunteers{" "}
+          </h2>
+          <button className="mb-6 mt-2 rounded-md bg-blue-600 px-6 py-3 font-medium text-white hover:bg-blue-700 xl:px-8 xl:py-4">
+            Become a Volunteer
+          </button>
+        </div>
+
+        {/** Right side */}
+        <img className="lg:ml-auto" src={volunteers} alt="volunteers" />
       </div>
     </div>
   );
