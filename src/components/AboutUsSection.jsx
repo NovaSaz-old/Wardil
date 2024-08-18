@@ -1,4 +1,5 @@
 import SimpleCard from "../components/SimpleCard";
+import EventCard from "../components/EventCard.jsx";
 import aboutUsSide from "../assets/images/image 2.png";
 import CampaignCard from "../components/CampaignCard.jsx";
 import VideoBanner from "./VideoBanner.jsx";
@@ -131,6 +132,29 @@ export default function AboutUsSection() {
 
         {/** Right side */}
         <img className="lg:ml-auto" src={volunteers} alt="volunteers" />
+      </div>
+
+      {/** Introducing the campaigns */}
+      <div style={{ textShadow: "1px 1px 2px rgba(0, 0, 0, 0.25)" }}>
+        <div className="mt-8 grid grid-cols-1 place-items-center lg:grid-cols-3 lg:px-10 2xl:px-24">
+          <div className="col-span-2 text-center lg:text-left">
+            <h3 className="text-2xl font-medium text-[#293A73]">HELP OTHERS</h3>
+            <h2 className="my-4 text-4xl font-semibold 2xl:text-5xl">
+              Introducing Our Campaign
+            </h2>
+            <p className="my-4 text-lg 2xl:text-xl">
+              Join us in creating a brighter future. Your support will make a
+              tangible difference in the lives of those in need.
+            </p>
+          </div>
+          <button className="rounded-md bg-blue-600 px-6 py-3 font-medium text-white hover:bg-blue-700 lg:ml-auto xl:px-8 xl:py-4 2xl:mr-8">
+            See More
+          </button>
+        </div>
+
+        <div>
+          <EventCard />
+        </div>
       </div>
     </div>
   );

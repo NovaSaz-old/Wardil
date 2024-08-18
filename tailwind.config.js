@@ -4,9 +4,14 @@ export default {
   theme: {
     extend: {
       screens: {
-        zf: "344px",
-        ss: "360px", // Replace '900px' with your desired breakpoint
+        zf: "344px", // Galaxy Z Fold
+        ss: "360px",
+        ss2: "375px", // IPhone SE
+        ss3: "380px",
+        sms: "454px",
+        sms2: "500px",
         sm: "640px",
+        ms: "704px",
         md: "768px",
         lg: "1024px",
         xl: "1280px",

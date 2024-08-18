@@ -23,7 +23,7 @@ export default function FooterTest() {
         <div className="md:mt-8">
           {" "}
           {/* Added md:mt-8 for margin top on mobile */}
-          <div className="md:ml-16">
+          <div className="md:ml-12 2xl:ml-16">
             <h1 className="text-3xl font-semibold">{`Navigation's`}</h1>
             <hr className="mt-3 w-1/4 border-t-2 border-gray-500" />
             <ul className="mt-4 md:mt-2">
