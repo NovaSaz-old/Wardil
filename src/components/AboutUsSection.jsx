@@ -4,6 +4,7 @@ import aboutUsSide from "../assets/images/image 2.png";
 import CampaignCard from "../components/CampaignCard.jsx";
 import VideoBanner from "./VideoBanner.jsx";
 import volunteers from "../assets/images/volunteers.png";
+import FAQ from "./FAQ.jsx";
 
 export default function AboutUsSection() {
   return (
@@ -135,14 +136,17 @@ export default function AboutUsSection() {
       </div>
 
       {/** Introducing the campaigns */}
-      <div style={{ textShadow: "1px 1px 2px rgba(0, 0, 0, 0.25)" }}>
-        <div className="mt-8 grid grid-cols-1 place-items-center lg:grid-cols-3 lg:px-10 2xl:px-24">
-          <div className="col-span-2 text-center lg:text-left">
+      <div className="px-2 lg:px-10 2xl:px-24">
+        <div className="mt-8 grid grid-cols-1 place-items-center lg:grid-cols-3">
+          <div
+            style={{ textShadow: "1px 1px 2px rgba(0, 0, 0, 0.25)" }}
+            className="col-span-2 text-center lg:text-left"
+          >
             <h3 className="text-2xl font-medium text-[#293A73]">HELP OTHERS</h3>
             <h2 className="my-4 text-4xl font-semibold 2xl:text-5xl">
               Introducing Our Campaign
             </h2>
-            <p className="my-4 text-lg 2xl:text-xl">
+            <p className="my-4 text-lg sm:p-4 lg:p-0 2xl:text-xl">
               Join us in creating a brighter future. Your support will make a
               tangible difference in the lives of those in need.
             </p>
@@ -152,9 +156,12 @@ export default function AboutUsSection() {
           </button>
         </div>
 
-        <div>
+        <div className="my-8 grid gap-4 sm:p-8 lg:grid-cols-2 lg:p-0">
+          <EventCard />
           <EventCard />
         </div>
+
+        <FAQ />
       </div>
     </div>
   );

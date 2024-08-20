@@ -8,6 +8,7 @@ export default {
         ss: "360px",
         ss2: "375px", // IPhone SE
         ss3: "380px",
+        ss4: "410px",
         sms: "454px",
         sms2: "500px",
         sm: "640px",
