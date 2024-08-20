@@ -160,9 +160,8 @@ export default function AboutUsSection() {
           <EventCard />
           <EventCard />
         </div>
-
-        <FAQ />
       </div>
+      <FAQ />
     </div>
   );
 }
