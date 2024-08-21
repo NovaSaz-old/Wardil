@@ -5,6 +5,7 @@ import CampaignCard from "../components/CampaignCard.jsx";
 import VideoBanner from "./VideoBanner.jsx";
 import volunteers from "../assets/images/volunteers.png";
 import FAQ from "./FAQ.jsx";
+import TestimonialCard from "../components/TestimonialCard.jsx";
 
 export default function AboutUsSection() {
   return (
@@ -47,7 +48,6 @@ export default function AboutUsSection() {
           <SimpleCard />
         </div>
       </div>
-
       {/** 2nd About us section with a side picture */}
       <div className="felx justify-center p-8 text-center md:p-28 2xl:text-left">
         <div className="grid grid-cols-1 place-items-center gap-6 2xl:grid-cols-3">
@@ -78,10 +78,8 @@ export default function AboutUsSection() {
           </div>
         </div>
       </div>
-
       {/** video section   ---  flex items-center justify-center text-center*/}
       <VideoBanner />
-
       {/** Help others section */}
       <div className="p-4 md:p-12 xl:px-20">
         <div
@@ -109,7 +107,6 @@ export default function AboutUsSection() {
         </button>
         <hr className="mx-auto mt-12 flex w-full shadow-sm shadow-gray-50 drop-shadow-sm" />
       </div>
-
       {/** Bellow the campaign cards -> Volunteer section */}
       <div
         style={{ textShadow: "1px 1px 2px rgba(0, 0, 0, 0.25)" }}
@@ -134,7 +131,6 @@ export default function AboutUsSection() {
         {/** Right side */}
         <img className="lg:ml-auto" src={volunteers} alt="volunteers" />
       </div>
-
       {/** Introducing the campaigns */}
       <div className="px-2 lg:px-10 2xl:px-24">
         <div className="mt-8 grid grid-cols-1 place-items-center lg:grid-cols-3">
@@ -162,6 +158,7 @@ export default function AboutUsSection() {
         </div>
       </div>
       <FAQ />
+      <TestimonialCard />
     </div>
   );
 }
