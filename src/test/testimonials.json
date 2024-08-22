@@ -1,25 +1,31 @@
 {
   "data": [
     {
-      "src": "",
-      "alt": "",
-      "testimonial": "verry good sar",
+      "id": 0,
+      "src": "../assets/images/scientest.jpg",
+      "alt": "scientest",
+      "testimonial": "I donated to Hope Raiser Charity Organization and was impressed by their transparency and efficiency. The donation process was seamless, and I appreciate the updates on how my donation is making an impact. I highly recommend supporting this organization.",
       "name": "person 1",
-      "title": "scientist"
+      "title": "scientist",
+      "rating": 5
     },
     {
-      "src": "",
+      "id": 1,
+      "src": "../assets/images/engineer.png",
       "alt": "",
-      "testimonial": "show bob and vagana",
+      "testimonial": "I donated to Hope Raiser Charity Organization and was impressed by their transparency and efficiency. The donation process was seamless, and I appreciate the updates on how my donation is making an impact. I highly recommend supporting this organization.",
       "name": "person 2",
-      "title": "engeneer"
+      "title": "engineer",
+      "rating": 5
     },
     {
+      "id": 2,
       "src": "",
       "alt": "",
-      "testimonial": "cats are the best",
+      "testimonial": "I donated to Hope Raiser Charity Organization and was impressed by their transparency and efficiency. The donation process was seamless, and I appreciate the updates on how my donation is making an impact. I highly recommend supporting this organization.",
       "name": "person 3",
-      "title": "pilot"
+      "title": "pilot",
+      "rating": 5
     }
   ]
 }

@@ -2,10 +2,13 @@ import SimpleCard from "../components/SimpleCard";
 import EventCard from "../components/EventCard.jsx";
 import aboutUsSide from "../assets/images/image 2.png";
 import CampaignCard from "../components/CampaignCard.jsx";
+// import CardCarousel from "./CardCarousel.jsx";
 import VideoBanner from "./VideoBanner.jsx";
 import volunteers from "../assets/images/volunteers.png";
 import FAQ from "./FAQ.jsx";
 import TestimonialCard from "../components/TestimonialCard.jsx";
+import CardCarousel from "./CardCarousel.jsx";
+// import NewsCard from "../components/NewsCard.jsx";
 
 export default function AboutUsSection() {
   return (
@@ -158,7 +161,37 @@ export default function AboutUsSection() {
         </div>
       </div>
       <FAQ />
-      <TestimonialCard />
+      <div className="grid grid-cols-1 place-items-center p-2 text-center lg:grid-cols-2 lg:gap-4 lg:p-10 lg:text-left xl:p-16 2xl:gap-8 2xl:p-32">
+        {/** side text */}
+        <div
+          style={{ textShadow: "1px 1px 2px rgba(0, 0, 0, 0.25)" }}
+          className="text-center lg:text-left"
+        >
+          <h3 className="text-xl font-medium text-blue-600">OUR TESTIMONIAL</h3>
+          <h2 className="my-4 text-4xl font-semibold 2xl:text-5xl">
+            What our clients say about Wardil charity
+          </h2>
+        </div>
+
+        {/** Testimonial card component */}
+        <TestimonialCard className="w-full" />
+      </div>
+
+      {/** News Section */}
+      <div className="p-2 lg:p-10 xl:p-16 2xl:p-32">
+        <div
+          style={{ textShadow: "1px 1px 2px rgba(0, 0, 0, 0.25)" }}
+          className="text-center"
+        >
+          <h3 className="text-xl font-medium text-blue-600">
+            OUR SUCCESS STORIES
+          </h3>
+          <h2 className="my-4 text-4xl font-semibold 2xl:text-5xl">
+            Latest News and Articles from our Blog Posts
+          </h2>
+        </div>
+        <CardCarousel />
+      </div>
     </div>
   );
 }
