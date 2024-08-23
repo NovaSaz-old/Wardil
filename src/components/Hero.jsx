@@ -8,6 +8,7 @@ import unite from "../assets/homeSVGs/unite.svg";
 import globe from "../assets/homeSVGs/globe.svg";
 import future from "../assets/homeSVGs/future.svg";
 import newspaper from "../assets/homeSVGs/newspaper.svg";
+import { Link } from "react-router-dom";
 
 export default function Hero() {
   return (
@@ -31,7 +32,7 @@ export default function Hero() {
               supporting our education, healthcare, and livelihood initiatives
             </p>
             <button className="mt-6 rounded border-2 border-blue-700 bg-white px-4 py-2 font-semibold shadow-md drop-shadow-sm hover:bg-blue-50">
-              Donate Now!
+              <Link to="/donate">Donate Now!</Link>
             </button>
           </div>
           {/** right part */}

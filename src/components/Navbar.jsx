@@ -11,37 +11,75 @@ export default function TempNavbar() {
   }
 
   return (
-    <nav className="mb-2 bg-gray-100 px-8 py-4 shadow">
+    <nav className="fixed z-20 mb-2 w-full bg-gray-100 px-8 py-4 shadow">
       <div className="flex items-center justify-between">
-        {/** LOGO */}
-        <div className="text-2xl font-bold text-gray-900">
+        {/* LOGO */}
+        <div className="">
           <NavLink to="/">
             <img src={logo} className="h-12" />
           </NavLink>
         </div>
 
-        {/** Mobile Burger List */}
+        {/* Mobile Burger List */}
 
         <div className="flex">
           {/* Navigation Links Container */}
           <div className="flex">
             <ul className="mt-2 hidden space-x-4 md:flex">
               <li className="text-gray-900">
-                <NavLink to="/">Home</NavLink>
+                <NavLink
+                  to="/"
+                  className={({ isActive }) =>
+                    isActive ? "font-medium text-blue-600" : "text-gray-900"
+                  }
+                >
+                  Home
+                </NavLink>
               </li>
               <li className="text-gray-900">
-                <NavLink to="/events">Events</NavLink>
+                <NavLink
+                  to="/events"
+                  className={({ isActive }) =>
+                    isActive ? "font-medium text-blue-600" : "text-gray-900"
+                  }
+                >
+                  Events
+                </NavLink>
               </li>
               <li className="text-gray-900">
-                <NavLink to="/contact">Contact Us</NavLink>
+                <NavLink
+                  to="/volunteer"
+                  className={({ isActive }) =>
+                    isActive ? "font-medium text-blue-600" : "text-gray-900"
+                  }
+                >
+                  Become a Volunteer
+                </NavLink>
               </li>
               <li className="text-gray-900">
-                <NavLink to="/about">About</NavLink>
+                <NavLink
+                  to="/contact"
+                  className={({ isActive }) =>
+                    isActive ? "font-medium text-blue-600" : "text-gray-900"
+                  }
+                >
+                  Contact Us
+                </NavLink>
+              </li>
+              <li className="text-gray-900">
+                <NavLink
+                  to="/about"
+                  className={({ isActive }) =>
+                    isActive ? "font-medium text-blue-600" : "text-gray-900"
+                  }
+                >
+                  About
+                </NavLink>
               </li>
             </ul>
           </div>
 
-          {/** Donate Button */}
+          {/* Donate Button */}
           <button className="hidden md:ml-12 md:block md:rounded md:bg-blue-600 md:px-4 md:py-2 md:font-semibold md:text-white">
             <NavLink to="/donate">Donate</NavLink>
           </button>
@@ -66,17 +104,55 @@ export default function TempNavbar() {
       {isMenuOpen ? (
         <>
           <ul className="flex-col text-center md:hidden">
-            <li className="pb-2 pt-8 text-lg text-gray-900">
-              <NavLink to="/">Home</NavLink>
+            <li className="pb-2 pt-8 text-lg font-medium text-gray-900">
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  isActive ? "font-medium text-blue-600" : "text-gray-900"
+                }
+              >
+                Home
+              </NavLink>
             </li>
             <li className="py-2 text-lg text-gray-900">
-              <NavLink to="/events">Events</NavLink>
+              <NavLink
+                to="/events"
+                className={({ isActive }) =>
+                  isActive ? "font-medium text-blue-600" : "text-gray-900"
+                }
+              >
+                Events
+              </NavLink>
             </li>
             <li className="py-2 text-lg text-gray-900">
-              <NavLink to="/contact">Contact Us</NavLink>
+              <NavLink
+                to="/volunteer"
+                className={({ isActive }) =>
+                  isActive ? "font-medium text-blue-600" : "text-gray-900"
+                }
+              >
+                Become a Volunteer
+              </NavLink>
             </li>
             <li className="py-2 text-lg text-gray-900">
-              <NavLink to="/about">About</NavLink>
+              <NavLink
+                to="/contact"
+                className={({ isActive }) =>
+                  isActive ? "font-medium text-blue-600" : "text-gray-900"
+                }
+              >
+                Contact Us
+              </NavLink>
+            </li>
+            <li className="py-2 text-lg text-gray-900">
+              <NavLink
+                to="/about"
+                className={({ isActive }) =>
+                  isActive ? "font-medium text-blue-600" : "text-gray-900"
+                }
+              >
+                About
+              </NavLink>
             </li>
           </ul>
         </>

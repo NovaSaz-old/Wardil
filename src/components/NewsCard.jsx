@@ -2,7 +2,7 @@ import newsImg from "../assets/images/news1.png";
 
 export default function NewsCard() {
   return (
-    <div className="grid w-[22rem] grid-cols-1 rounded-xl bg-white pb-8 shadow-md drop-shadow-sm">
+    <div className="grid grid-cols-1 rounded-xl bg-white pb-8 shadow-md drop-shadow-sm zf:w-64 ss2:w-9/12 ss3:w-10/12 sms:w-[22rem]">
       <div className="h-54">
         <img
           className="w-full rounded-b-none rounded-t-xl bg-cover object-cover"

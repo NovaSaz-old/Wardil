@@ -6,15 +6,18 @@ import Events from "./pages/Events";
 import ContactUs from "./pages/ContactUs";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import Volunteer from "./pages/Volunteer";
 
 export default function App() {
   return (
-    <div className="h-screen bg-gray-50 font-[Poppins]">
+    <div className="h-screen w-full overflow-x-hidden bg-gray-50 font-[Poppins]">
       <Navbar />
+      <div className="p-10"></div>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/events" element={<Events />} />
         <Route path="/contact" element={<ContactUs />} />
+        <Route path="/volunteer" element={<Volunteer />} />
         <Route path="/about" element={<About />} />
         <Route path="/donate" element={<Donate />} />
       </Routes>
