@@ -9,7 +9,7 @@ function CampaignCard() {
         <h2 className="text-2xl font-semibold text-gray-900">
           Campaign to provide books for children
         </h2>
-        <p className="mt-2 text-gray-700">
+        <p className="mt-2 overflow-hidden text-gray-700">
           We focus on child education are critical in ensuring that children
           have access to quality education and the opportunity to reach their
           full potential. Every children needs healthy foods.
