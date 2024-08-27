@@ -3,7 +3,7 @@ import cardImage from "../assets/images/cardImage.png";
 
 function CampaignCard() {
   return (
-    <div className="m-2 w-80 overflow-hidden rounded-lg bg-white shadow-md drop-shadow-md xl:w-96">
+    <div className="m-2 w-80 rounded-lg bg-white shadow-md drop-shadow-md xl:w-96">
       <div className="p-4 xl:p-6">
         <img src={cardImage} className="mx-auto mb-4 w-full" />
         <h2 className="text-2xl font-semibold text-gray-900">
