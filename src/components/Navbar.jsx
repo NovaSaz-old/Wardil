@@ -154,6 +154,11 @@ export default function TempNavbar() {
                 About
               </NavLink>
             </li>
+            <li className="pb-2 pt-8 text-lg font-medium text-gray-900">
+              <button className="rounded bg-blue-600 px-4 py-2 text-white">
+                <NavLink to="/donate">Donate</NavLink>
+              </button>
+            </li>
           </ul>
         </>
       ) : null}
