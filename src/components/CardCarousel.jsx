@@ -27,6 +27,8 @@ export default function CardCarousel() {
         className="mx-5 p-5 ss3:p-7 ss4:p-8"
         dotListClass="react-multi-carousel-dot-list"
         swipeable={true}
+        showDots={true}
+        removeArrowOnDeviceType={["tablet", "mobile"]}
         responsive={responsive}
         itemClass="carousel-item-padding-20-px"
       >
