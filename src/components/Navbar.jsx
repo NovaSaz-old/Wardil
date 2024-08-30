@@ -106,6 +106,7 @@ export default function TempNavbar() {
           <ul className="flex-col text-center md:hidden">
             <li className="pb-2 pt-8 text-lg font-medium text-gray-900">
               <NavLink
+                onClick={toggleMenu}
                 to="/"
                 className={({ isActive }) =>
                   isActive ? "font-medium text-blue-600" : "text-gray-900"
@@ -116,6 +117,7 @@ export default function TempNavbar() {
             </li>
             <li className="py-2 text-lg text-gray-900">
               <NavLink
+                onClick={toggleMenu}
                 to="/events"
                 className={({ isActive }) =>
                   isActive ? "font-medium text-blue-600" : "text-gray-900"
@@ -126,6 +128,7 @@ export default function TempNavbar() {
             </li>
             <li className="py-2 text-lg text-gray-900">
               <NavLink
+                onClick={toggleMenu}
                 to="/volunteer"
                 className={({ isActive }) =>
                   isActive ? "font-medium text-blue-600" : "text-gray-900"
@@ -136,6 +139,7 @@ export default function TempNavbar() {
             </li>
             <li className="py-2 text-lg text-gray-900">
               <NavLink
+                onClick={toggleMenu}
                 to="/contact"
                 className={({ isActive }) =>
                   isActive ? "font-medium text-blue-600" : "text-gray-900"
@@ -146,6 +150,7 @@ export default function TempNavbar() {
             </li>
             <li className="py-2 text-lg text-gray-900">
               <NavLink
+                onClick={toggleMenu}
                 to="/about"
                 className={({ isActive }) =>
                   isActive ? "font-medium text-blue-600" : "text-gray-900"
@@ -156,7 +161,9 @@ export default function TempNavbar() {
             </li>
             <li className="pb-2 pt-8 text-lg font-medium text-gray-900">
               <button className="rounded bg-blue-600 px-4 py-2 text-white">
-                <NavLink to="/donate">Donate</NavLink>
+                <NavLink onClick={toggleMenu} to="/donate">
+                  Donate
+                </NavLink>
               </button>
             </li>
           </ul>

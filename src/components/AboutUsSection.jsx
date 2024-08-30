@@ -7,6 +7,7 @@ import VideoBanner from "./VideoBanner.jsx";
 import volunteers from "../assets/images/volunteers.png";
 import FAQ from "./FAQ.jsx";
 import TestimonialCard from "../components/TestimonialCard.jsx";
+import { Link } from "react-router-dom";
 // import CardCarousel2 from "./CardCarousel2.jsx";
 // import NewsCard from "../components/NewsCard.jsx";
 
@@ -127,7 +128,7 @@ export default function AboutUsSection() {
             Meet Our Volunteers{" "}
           </h2>
           <button className="mb-6 mt-2 rounded-md bg-blue-600 px-6 py-3 font-medium text-white hover:bg-blue-700 xl:px-8 xl:py-4">
-            Become a Volunteer
+            <Link to="/volunteer">Become a Volunteer</Link>
           </button>
         </div>
 
