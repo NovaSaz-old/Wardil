@@ -152,11 +152,11 @@ export default function AboutUsSection() {
             </p>
           </div>
           <button className="rounded-md bg-blue-600 px-6 py-3 font-medium text-white hover:bg-blue-700 lg:ml-auto xl:px-8 xl:py-4 2xl:mr-8">
-            See More
+            <Link to="/events">See More</Link>
           </button>
         </div>
 
-        <div className="my-8 grid gap-4 sm:p-8 lg:grid-cols-2 lg:p-0">
+        <div className="my-8 grid gap-4 sm:p-8 lg:grid-cols-2 lg:gap-10 lg:p-0 2xl:gap-24">
           <EventCard />
           <EventCard />
         </div>

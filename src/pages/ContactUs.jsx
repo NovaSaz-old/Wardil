@@ -1,7 +1,9 @@
+import CourseRegistrationForm from "../components/CourseRegistrationForm";
+
 export default function ContactUs() {
   return (
     <>
-      <h1>Contact Us</h1>
+      <CourseRegistrationForm />
     </>
   );
 }

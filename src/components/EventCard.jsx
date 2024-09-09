@@ -3,6 +3,7 @@ import { FaClock } from "react-icons/fa";
 import { BiSolidCategoryAlt } from "react-icons/bi";
 import { FaCalendarDays } from "react-icons/fa6";
 import { IoLocationSharp } from "react-icons/io5";
+import { Link } from "react-router-dom";
 // "sms:flex-row sms:items-center ss4:text-base flex flex-col text-sm"
 export default function EventCard() {
   return (
@@ -35,6 +36,9 @@ export default function EventCard() {
           institute right there! Let’s break it ou can have the best training
           program, but if no one have the best training program.
         </p>
+        <button className="mt-4 rounded-md bg-blue-600 px-4 py-2 font-medium text-white hover:bg-blue-700">
+          <Link to="/event-details">See More</Link>
+        </button>
       </div>
     </div>
   );
