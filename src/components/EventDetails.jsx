@@ -32,8 +32,8 @@ function EventDetails() {
               </p>
             </div>
             <div>
-              <button className="rounded bg-blue-600 px-8 py-4 text-white drop-shadow hover:bg-blue-800">
-                <p className="drop-shadow">Register Now</p>
+              <button className="rounded bg-blue-600 px-8 py-4 text-white drop-shadow hover:bg-blue-700">
+                <p className="font-medium drop-shadow">Register Now</p>
               </button>
             </div>
           </div>
@@ -78,8 +78,8 @@ function EventDetails() {
               29 - Year UX + Design
             </h6>
             <br />
-            <div className="border-b border-gray-300"></div>
-            <p className="text-lg">
+            <div className="mb-2 border-b border-gray-300 shadow-sm"></div>
+            <p className="text-lg text-gray-800">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
               est asperiores deleniti sit suscipit magni officia, laborum
               ratione! Facere sit autem nemo deleniti expedita voluptate ad sint
@@ -102,13 +102,13 @@ function EventDetails() {
               ratione! Facere sit autem nemo deleniti expedita voluptate ad sint
               illo quisquam. Voluptates!
             </p>
-            <button className="font-bold text-blue-900 hover:text-blue-600">
+            <button className="mt-2 font-bold text-blue-900 hover:text-blue-600">
               Read More...
             </button>
           </div>
         </div>
       </div>
-      <div className="grid bg-blue-600 px-12 py-4 text-center drop-shadow-sm lg:grid-cols-4">
+      <div className="grid bg-blue-600 p-12 text-center drop-shadow-sm lg:grid-cols-4">
         <div>
           <h3 className="text-4xl font-semibold text-amber-400 drop-shadow-sm">
             24+
