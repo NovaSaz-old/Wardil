@@ -12,12 +12,6 @@ const ContactForm = () => {
     message: Yup.string().required("Message is required"),
   });
 
-  const phoneNumber = "0751 111 7512";
-  const email = "contact@wardill.org";
-  const address = "Iraq, Duhok, Gere Base Area";
-  const googleMapsLink =
-    "https://www.google.com/maps/search/?api=1&query=Duhok+Gere+Base+Area"; // Example Google Maps link
-
   return (
     <>
       <Formik
@@ -139,62 +133,32 @@ const ContactForm = () => {
       </Formik>
 
       <div className="mt-12 flex flex-col items-center justify-center lg:flex-row">
-        {/** 1st card for Phone */}
-        <div className="mx-auto my-8 h-48 w-72 rounded-lg bg-white p-6 shadow-lg transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
-          <h4 className="mx-2 mb-4 text-2xl font-semibold text-gray-800">
-            Phone Numbers
-          </h4>
+        {/** 1st card */}
+        <div className="mx-auto my-8 h-48 w-72 rounded-lg bg-white p-8 shadow drop-shadow-sm">
+          <h4 className="mx-2 mb-6 text-2xl font-medium">Number</h4>
           <div className="mt-3 flex">
-            <a
-              href={`tel:${phoneNumber}`}
-              className="flex items-center text-gray-600 transition-colors duration-300 hover:text-blue-500"
-            >
-              <FaPhone className="ml-2 mr-4 text-2xl" />
-              <p className="my-auto text-lg">{phoneNumber}</p>
-            </a>
+            <FaPhone className="ml-2 mr-4 text-2xl" />
+            <p className="my-auto text-lg">0751 111 7512</p>
           </div>
           <div className="mt-3 flex">
-            <a
-              href={`tel:${phoneNumber}`}
-              className="flex items-center text-gray-600 transition-colors duration-300 hover:text-blue-500"
-            >
-              <FaPhone className="ml-2 mr-4 text-2xl" />
-              <p className="my-auto text-lg">{phoneNumber}</p>
-            </a>
+            <FaPhone className="ml-2 mr-4 text-2xl" />
+            <p className="my-auto text-lg">0751 111 7512</p>
           </div>
         </div>
-
-        {/** 2nd card for Address */}
-        <div className="mx-auto my-8 h-48 w-72 rounded-lg bg-white p-6 shadow-lg transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
-          <h4 className="mx-2 mb-4 text-2xl font-semibold text-gray-800">
-            Address
-          </h4>
+        {/** 2nd card */}
+        <div className="mx-auto my-8 h-48 w-72 rounded-lg bg-white p-8 shadow drop-shadow-sm">
+          <h4 className="mx-2 mb-6 text-2xl font-medium">Address</h4>
           <div className="mt-3 flex">
-            <a
-              href={googleMapsLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center text-gray-600 transition-colors duration-300 hover:text-blue-500"
-            >
-              <FaLocationDot className="ml-2 mr-4 text-2xl" />
-              <p className="my-auto text-lg">{address}</p>
-            </a>
+            <FaLocationDot className="ml-2 mr-4 text-2xl" />
+            <p className="my-auto text-lg">Iraq, Duhok, Gere Base Area</p>
           </div>
         </div>
-
-        {/** 3rd card for Email */}
-        <div className="mx-auto my-8 h-48 w-72 rounded-lg bg-white p-6 shadow-lg transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
-          <h4 className="mx-2 mb-4 text-2xl font-semibold text-gray-800">
-            Email
-          </h4>
-          <div className="mt-3 flex">
-            <a
-              href={`mailto:${email}`}
-              className="flex items-center text-gray-600 transition-colors duration-300 hover:text-blue-500"
-            >
-              <IoMdMail className="ml-2 mr-4 text-3xl" />
-              <p className="my-auto text-lg">{email}</p>
-            </a>
+        {/** 3rd card */}
+        <div className="mx-auto my-8 h-48 w-72 rounded-lg bg-white p-8 shadow drop-shadow-sm">
+          <h4 className="mx-2 mb-6 text-2xl font-medium">Email</h4>
+          <div className="mt-10 flex">
+            <IoMdMail className="ml-2 mr-4 text-3xl" />
+            <p className="my-auto text-lg">contact@wardill.org</p>
           </div>
         </div>
       </div>

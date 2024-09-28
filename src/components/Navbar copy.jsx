@@ -13,15 +13,17 @@ export default function TempNavbar() {
   return (
     <nav className="fixed z-50 mb-2 w-full bg-gray-100 px-8 py-4 shadow">
       <div className="flex items-center justify-between">
-        {/* LOGO - Visible on mobile, hidden on larger screens */}
-        <div className="block md:hidden">
+        {/* LOGO */}
+        <div className="">
           <NavLink to="/">
-            <img src={logo} className="h-10" alt="Logo" />
+            <img src={logo} className="h-12" />
           </NavLink>
         </div>
 
-        {/* Navigation Links Container */}
-        <div className="flex w-full items-center justify-between">
+        {/* Mobile Burger List */}
+
+        <div className="flex">
+          {/* Navigation Links Container */}
           <div className="flex">
             <ul className="mt-2 hidden space-x-4 md:flex">
               <li className="text-gray-900">
@@ -74,25 +76,13 @@ export default function TempNavbar() {
                   About
                 </NavLink>
               </li>
-              <li className="text-gray-900">
-                <NavLink
-                  to="/OurTeam"
-                  className={({ isActive }) =>
-                    isActive ? "font-medium text-blue-600" : "text-gray-900"
-                  }
-                >
-                  Our Team
-                </NavLink>
-              </li>
             </ul>
           </div>
 
           {/* Donate Button */}
-          <button className="hidden md:ml-12 md:ml-auto md:block md:rounded md:bg-blue-600 md:px-4 md:py-2 md:font-semibold md:text-white">
+          <button className="hidden md:ml-12 md:block md:rounded md:bg-blue-600 md:px-4 md:py-2 md:font-semibold md:text-white">
             <NavLink to="/donate">Donate</NavLink>
           </button>
-
-          {/* Mobile Burger Menu */}
           <div className="md:hidden">
             <button className="text-gray-900" onClick={toggleMenu}>
               <svg
@@ -110,7 +100,6 @@ export default function TempNavbar() {
           </div>
         </div>
       </div>
-
       {/* MOBILE MENU */}
       {isMenuOpen ? (
         <>
@@ -162,17 +151,6 @@ export default function TempNavbar() {
             <li className="py-2 text-lg text-gray-900">
               <NavLink
                 onClick={toggleMenu}
-                to="/OurTeam"
-                className={({ isActive }) =>
-                  isActive ? "font-medium text-blue-600" : "text-gray-900"
-                }
-              >
-                Our Team
-              </NavLink>
-            </li>
-            <li className="py-2 text-lg text-gray-900">
-              <NavLink
-                onClick={toggleMenu}
                 to="/about"
                 className={({ isActive }) =>
                   isActive ? "font-medium text-blue-600" : "text-gray-900"
@@ -181,7 +159,6 @@ export default function TempNavbar() {
                 About
               </NavLink>
             </li>
-
             <li className="pb-2 pt-8 text-lg font-medium text-gray-900">
               <button className="rounded bg-blue-600 px-4 py-2 text-white">
                 <NavLink onClick={toggleMenu} to="/donate">
