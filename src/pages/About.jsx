@@ -2,6 +2,7 @@ import hero2sm from "../assets/images/hero2sm.png";
 import aboutUsSide from "../assets/images/image 2.png";
 import BlueBottomBanner from "../components/BlueBottomBanner";
 import VideoBanner from "../components/VideoBanner";
+import CourseRegistrationForm from "../components/CourseRegistrationForm";
 
 export default function About() {
   return (
@@ -71,6 +72,7 @@ export default function About() {
       <VideoBanner />
 
       <BlueBottomBanner />
+      <CourseRegistrationForm />
     </div>
   );
 }
