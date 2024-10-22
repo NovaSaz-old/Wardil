@@ -7,6 +7,7 @@ import ContactUs from "./pages/ContactUs";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Volunteer from "./pages/Volunteer";
+import OurTeam from "./pages/OurTeam";
 import EventDetails from "./components/EventDetails";
 
 export default function App() {
@@ -22,6 +23,7 @@ export default function App() {
         <Route path="/about" element={<About />} />
         <Route path="/donate" element={<Donate />} />
         <Route path="/event-details" element={<EventDetails />} />
+        <Route path="/OurTeam" element={<OurTeam />} />
       </Routes>
       <Footer />
     </div>
