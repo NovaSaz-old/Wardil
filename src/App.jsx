@@ -9,6 +9,7 @@ import Footer from "./components/Footer";
 import Volunteer from "./pages/Volunteer";
 import OurTeam from "./pages/OurTeam";
 import EventDetails from "./components/EventDetails";
+import PhotoAlbum from "./pages/imgs";
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
       <div className="p-10"></div>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/imgs" element={<PhotoAlbum />} />
         <Route path="/events" element={<Events />} />
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/volunteer" element={<Volunteer />} />

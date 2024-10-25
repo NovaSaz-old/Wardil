@@ -1,5 +1,6 @@
 // App.jsx
 import React from "react";
+import TitleSection from '../components/itleSection';
 import hero2sm from "../assets/images/hero2sm.png";
 function OurTeam() {
   const volunteerData = [
@@ -103,17 +104,12 @@ function OurTeam() {
       {/* Header */}
       <img src={hero2sm} alt="hero" />
 
-      {/* Title Section */}
-      <div className="my-8 text-center">
-        <h2 className="mb-4 text-4xl font-bold">
-          Just have a quick any questions?
-        </h2>
-        <p className="mb-2">
-          How do somethings great to help others. We try our best to help
-          helpless people.
-        </p>
-        <p>See our Progress in numbers</p>
-      </div>
+<TitleSection
+  title="Welcome to Our Community"
+  subtitle1="We are glad to have you here."
+  subtitle2="Explore our latest updates"
+/>
+
 
       {/* Volunteers Section */}
       <h2 className="mb-6 text-center text-3xl font-bold">Volunteers</h2>
