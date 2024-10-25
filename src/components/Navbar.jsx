@@ -4,6 +4,7 @@ import logo from "../assets/logos/logo.png";
 
 export default function TempNavbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [selectedLanguage, setSelectedLanguage] = useState('English');
 
   function toggleMenu() {
     setIsMenuOpen(!isMenuOpen);
@@ -24,6 +25,7 @@ export default function TempNavbar() {
         <div className="flex w-full items-center justify-between">
           <div className="flex">
             <ul className="mt-2 hidden space-x-4 md:flex">
+              {/* Existing navigation links */}
               <li className="text-gray-900">
                 <NavLink
                   to="/"
@@ -54,6 +56,17 @@ export default function TempNavbar() {
                   Become a Volunteer
                 </NavLink>
               </li>
+              <li className="text-gray-900">
+              <NavLink
+                onClick={toggleMenu}
+                to="/imgs"
+                className={({ isActive }) =>
+                  isActive ? "font-medium text-blue-600" : "text-gray-900"
+                }
+              >
+                Images
+              </NavLink>
+            </li>
               <li className="text-gray-900">
                 <NavLink
                   to="/contact"
@@ -87,34 +100,51 @@ export default function TempNavbar() {
             </ul>
           </div>
 
-          {/* Donate Button */}
-          <button className="hidden md:ml-12 md:ml-auto md:block md:rounded md:bg-blue-600 md:px-4 md:py-2 md:font-semibold md:text-white">
-            <NavLink to="/donate">Donate</NavLink>
-          </button>
-
-          {/* Mobile Burger Menu */}
-          <div className="md:hidden">
-            <button className="text-gray-900" onClick={toggleMenu}>
-              <svg
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                viewBox="0 0 24 24"
-                className="w-6 *:h-6"
-              >
-                <path d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
+          {/* Donate Button and Language Selector */}
+          <div className="flex items-center">
+            {/* Donate Button - Hidden on mobile */}
+            <button className="hidden md:block md:rounded md:bg-blue-600 md:px-4 md:py-2 md:font-semibold md:text-white">
+              <NavLink to="/donate">Donate</NavLink>
             </button>
+
+            {/* Language Selector - Hidden on mobile */}
+            <div className="relative ml-4 hidden md:block">
+              <select
+                value={selectedLanguage}
+                onChange={(e) => setSelectedLanguage(e.target.value)}
+                className="rounded border-gray-300 px-2 py-1 text-gray-900 focus:border-blue-500 focus:ring-blue-500"
+              >
+                <option value="English">English</option>
+                <option value="French">French</option>
+                {/* Add more languages as needed */}
+              </select>
+            </div>
+
+            {/* Mobile Burger Menu */}
+            <div className="md:hidden">
+              <button className="text-gray-900" onClick={toggleMenu}>
+                <svg
+                  fill="none"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  viewBox="0 0 24 24"
+                  className="w-6 h-6"
+                >
+                  <path d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
       </div>
 
       {/* MOBILE MENU */}
-      {isMenuOpen ? (
+      {isMenuOpen && (
         <>
           <ul className="flex-col text-center md:hidden">
+            {/* Existing mobile nav links */}
             <li className="pb-2 pt-8 text-lg font-medium text-gray-900">
               <NavLink
                 onClick={toggleMenu}
@@ -151,23 +181,23 @@ export default function TempNavbar() {
             <li className="py-2 text-lg text-gray-900">
               <NavLink
                 onClick={toggleMenu}
+                to="/imgs"
+                className={({ isActive }) =>
+                  isActive ? "font-medium text-blue-600" : "text-gray-900"
+                }
+              >
+                Images
+              </NavLink>
+            </li>
+            <li className="py-2 text-lg text-gray-900">
+              <NavLink
+                onClick={toggleMenu}
                 to="/contact"
                 className={({ isActive }) =>
                   isActive ? "font-medium text-blue-600" : "text-gray-900"
                 }
               >
                 Contact Us
-              </NavLink>
-            </li>
-            <li className="py-2 text-lg text-gray-900">
-              <NavLink
-                onClick={toggleMenu}
-                to="/OurTeam"
-                className={({ isActive }) =>
-                  isActive ? "font-medium text-blue-600" : "text-gray-900"
-                }
-              >
-                Our Team
               </NavLink>
             </li>
             <li className="py-2 text-lg text-gray-900">
@@ -181,7 +211,37 @@ export default function TempNavbar() {
                 About
               </NavLink>
             </li>
+            <li className="py-2 text-lg text-gray-900">
+              <NavLink
+                onClick={toggleMenu}
+                to="/OurTeam"
+                className={({ isActive }) =>
+                  isActive ? "font-medium text-blue-600" : "text-gray-900"
+                }
+              >
+                Our Team
+              </NavLink>
+            </li>
 
+            {/* Language Selector in Mobile Menu */}
+            <li className="py-2 text-lg text-gray-900">
+              <div className="flex justify-center">
+                <select
+                  value={selectedLanguage}
+                  onChange={(e) => {
+                    setSelectedLanguage(e.target.value);
+                    toggleMenu();
+                  }}
+                  className="rounded border-gray-300 px-2 py-1 text-gray-900 focus:border-blue-500 focus:ring-blue-500"
+                >
+                  <option value="English">English</option>
+                  <option value="French">French</option>
+                  {/* Add more languages as needed */}
+                </select>
+              </div>
+            </li>
+
+            {/* Donate Button in Mobile Menu */}
             <li className="pb-2 pt-8 text-lg font-medium text-gray-900">
               <button className="rounded bg-blue-600 px-4 py-2 text-white">
                 <NavLink onClick={toggleMenu} to="/donate">
@@ -191,7 +251,7 @@ export default function TempNavbar() {
             </li>
           </ul>
         </>
-      ) : null}
+      )}
     </nav>
   );
 }
