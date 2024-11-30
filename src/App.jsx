@@ -10,6 +10,7 @@ import Volunteer from "./pages/Volunteer";
 import OurTeam from "./pages/OurTeam";
 import EventDetails from "./components/EventDetails";
 import PhotoAlbum from "./pages/imgs";
+import CourseRegisteration from "./pages/CourseRegisteration";
 
 export default function App() {
   return (
@@ -24,7 +25,8 @@ export default function App() {
         <Route path="/volunteer" element={<Volunteer />} />
         <Route path="/about" element={<About />} />
         <Route path="/donate" element={<Donate />} />
-        <Route path="/event-details" element={<EventDetails />} />
+        <Route path="//event-details" element={<EventDetails />} />
+        <Route path="/course-registeration" element={<CourseRegisteration/>}/>
         <Route path="/OurTeam" element={<OurTeam />} />
       </Routes>
       <Footer />

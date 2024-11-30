@@ -11,7 +11,9 @@
   },
   "dependencies": {
     "@uidotdev/usehooks": "^2.4.1",
+    "axios": "^1.7.7",
     "formik": "^2.4.6",
+    "js-cookie": "^3.0.5",
     "react": "^18.3.1",
     "react-card-slider-component": "^1.0.9",
     "react-dom": "^18.3.1",

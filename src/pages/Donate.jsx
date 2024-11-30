@@ -1,73 +1,48 @@
-import React, { useState } from 'react';
-import { HeaderImg } from "../components/HeaderImg"; 
-import TitleSection from '../components/itleSection';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { HeaderImg } from "../components/HeaderImg";
+import TitleSection from "../components/itleSection";
 
+const API_URL = "http://my.admin.wardil.org/api";
 
-
-
-const CampaignDetails = () => (
+const CampaignDetails = ({ campaign }) => (
   <div className="flex flex-col md:flex-row items-start bg-white p-8 mb-10 shadow-lg rounded-lg border border-gray-300">
     {/* Left: Image */}
     <div className="md:w-1/2 w-full mb-6 md:mb-0 md:pr-6">
       <img
-        src="https://imageio.forbes.com/specials-images/imageserve/5fea08b9359920f0dad766b9/The-Nine-Types-of-People-You-Need-in-Your-Success-Circle/960x0.jpg?format=jpg&width=1440"
-        alt="Children reading"
+        src={`http://my.admin.wardil.org/${campaign.image.replace(/\\/g, "/")}`}
+        alt={campaign.title}
         className="w-full h-72 object-cover rounded-lg"
       />
     </div>
 
     {/* Right: Text and Details */}
     <div className="md:w-1/2 w-full">
-      <h3 className="text-xl font-bold text-gray-800 mb-4">
-        Campaign to provide books for children
-      </h3>
+      <h3 className="text-xl font-bold text-gray-800 mb-4">{campaign.title}</h3>
       <p className="text-gray-700 text-base leading-relaxed mb-6">
-        We focus on child education, which is critical in ensuring that children have access to quality education and the opportunity to reach their full potential. Every child needs healthy food and basic educational resources.
+        {campaign.details}
       </p>
 
-      <button className="bg-red-600 text-white px-6 py-2 rounded-md mb-6 hover:bg-red-700 transition duration-300">
-        Video
-      </button>
+      <a
+        href={campaign.youtube_link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="bg-red-600 text-white px-6 py-2 rounded-md mb-6 hover:bg-red-700 transition duration-300 inline-block"
+      >
+        Watch Video
+      </a>
 
       <div className="flex justify-between text-gray-600">
-        <p><strong>Goals:</strong> $25,000</p>
-        <p><strong>Raised:</strong> $21,000</p>
+        <p>
+          <strong>Goals:</strong> ${campaign.goals}
+        </p>
+        <p>
+          <strong>Raised:</strong> ${campaign.raised}
+        </p>
       </div>
     </div>
   </div>
 );
-
-const AdditionalDetails = () => {
-  const [showMore, setShowMore] = useState(false);
-
-  return (
-    <div className="flex flex-col md:flex-row items-start bg-white p-8 shadow-md rounded-lg mb-10">
-      <div className="md:w-1/2 w-full mb-6 md:mb-0">
-        <h3 className="text-xl font-bold text-gray-800 mb-4">
-          Campaign to provide books for children
-        </h3>
-        <p className="text-gray-700 text-base leading-relaxed mb-4">
-          We focus on child education, which is critical in ensuring that children have access to quality education and the opportunity to reach their full potential. Every child needs healthy food and basic educational resources.
-        </p>
-      </div>
-
-      <div className="md:w-1/2 w-full">
-        {showMore && (
-          <p className="text-gray-700 text-base leading-relaxed mb-4">
-            This campaign aims to provide resources to children in underserved communities. By supporting this cause, you help us deliver books, learning materials, and basic necessities to children. We also focus on nutrition, ensuring that every child receives healthy meals while gaining access to quality education. This program is essential for fostering long-term growth and development.
-          </p>
-        )}
-
-        <button
-          onClick={() => setShowMore(!showMore)}
-          className="text-blue-700 font-semibold hover:text-blue-900"
-        >
-          {showMore ? 'Show Less' : 'Read More...'}
-        </button>
-      </div>
-    </div>
-  );
-};
 
 const DonationButtons = () => (
   <div className="bg-[#0056B3] py-12 rounded-lg shadow-lg mb-12 text-center text-white">
@@ -82,7 +57,6 @@ const DonationButtons = () => (
     </div>
   </div>
 );
-
 
 const DonationInfo = () => (
   <div className="bg-white p-8 mb-12 shadow-lg rounded-lg text-gray-700">
@@ -113,18 +87,53 @@ const DonationInfo = () => (
   </div>
 );
 
-const DonationPage = () => (
-  <div className="font-sans bg-gray-100 px-2 sm:px-4 lg:px-10 py-6">
-<HeaderImg />
-<TitleSection
-  title="Welcome to Our Community"
-  subtitle1="We are glad to have you here."
-  subtitle2="Explore our latest updates"
-/>
-    <CampaignDetails />
-    <DonationButtons />
-    <DonationInfo />
-  </div>
-);
+const DonationPage = () => {
+  const [campaigns, setCampaigns] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchCampaigns = async () => {
+      try {
+        const response = await axios.get(`${API_URL}/campaigns`, {
+          headers: {
+            "x-api-key": "zJ6Z", // Replace with your actual API key
+          },
+        });
+        setCampaigns(response.data); // Update state with campaign data
+      } catch (err) {
+        setError("Failed to load campaigns.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchCampaigns();
+  }, []);
+
+  return (
+    <div className="font-sans bg-gray-100 px-2 sm:px-4 lg:px-10 py-6">
+      <HeaderImg />
+      <TitleSection
+        title="Welcome to Our Community"
+        subtitle1="We are glad to have you here."
+        subtitle2="Explore our latest updates"
+      />
+
+      {loading ? (
+        <p className="text-center text-lg text-gray-500">Loading campaigns...</p>
+      ) : error ? (
+        <p className="text-center text-lg text-red-500">{error}</p>
+      ) : (
+        campaigns.map((campaign) => (
+          <CampaignDetails key={campaign.id} campaign={campaign} />
+        ))
+      )}
+
+      <DonationButtons />
+      <DonationInfo />
+    </div>
+  );
+};
 
 export default DonationPage;

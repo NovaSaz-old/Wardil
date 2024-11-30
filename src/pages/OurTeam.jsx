@@ -1,92 +1,56 @@
-// App.jsx
-import React from "react";
-import TitleSection from '../components/itleSection';
+import React, { useState, useEffect } from "react";
+import TitleSection from "../components/itleSection";
 import hero2sm from "../assets/images/hero2sm.png";
-function OurTeam() {
-  const volunteerData = [
-    {
-      name: "Darbaz Rasul",
-      bloodType: "O+",
-      idNo: "0000 0000",
-      phone: "+964 750 000 00 00",
-      email: "darbazrasul@gmail.com",
-      imageUrl:
-        "https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg?w=1800&t=st=1727515061~exp=1727515661~hmac=ebcbf1fb8ec570b56d75fe4c3609b106cb125ab6b012a8eb0ca0aaf390c0a7e7",
-    },
-    // Add more volunteers here
-    // For example purposes, you can add the same data multiple times
-    {
-      name: "Darbaz Rasul",
-      bloodType: "O+",
-      idNo: "0000 0000",
-      phone: "+964 750 000 00 00",
-      email: "darbazrasul@gmail.com",
-      imageUrl:
-        "https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg?w=1800&t=st=1727515061~exp=1727515661~hmac=ebcbf1fb8ec570b56d75fe4c3609b106cb125ab6b012a8eb0ca0aaf390c0a7e7",
-    },
-    {
-      name: "Darbaz Rasul",
-      bloodType: "O+",
-      idNo: "0000 0000",
-      phone: "+964 750 000 00 00",
-      email: "darbazrasul@gmail.com",
-      imageUrl:
-        "https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg?w=1800&t=st=1727515061~exp=1727515661~hmac=ebcbf1fb8ec570b56d75fe4c3609b106cb125ab6b012a8eb0ca0aaf390c0a7e7",
-    },
-    {
-      name: "Darbaz Rasul",
-      bloodType: "O+",
-      idNo: "0000 0000",
-      phone: "+964 750 000 00 00",
-      email: "darbazrasul@gmail.com",
-      imageUrl:
-        "https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg?w=1800&t=st=1727515061~exp=1727515661~hmac=ebcbf1fb8ec570b56d75fe4c3609b106cb125ab6b012a8eb0ca0aaf390c0a7e7",
-    },
-    {
-      name: "Darbaz Rasul",
-      bloodType: "O+",
-      idNo: "0000 0000",
-      phone: "+964 750 000 00 00",
-      email: "darbazrasul@gmail.com",
-      imageUrl:
-        "https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg?w=1800&t=st=1727515061~exp=1727515661~hmac=ebcbf1fb8ec570b56d75fe4c3609b106cb125ab6b012a8eb0ca0aaf390c0a7e7",
-    },
-    {
-      name: "Darbaz Rasul",
-      bloodType: "O+",
-      idNo: "0000 0000",
-      phone: "+964 750 000 00 00",
-      email: "darbazrasul@gmail.com",
-      imageUrl:
-        "https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg?w=1800&t=st=1727515061~exp=1727515661~hmac=ebcbf1fb8ec570b56d75fe4c3609b106cb125ab6b012a8eb0ca0aaf390c0a7e7",
-    },
-    {
-      name: "Darbaz Rasul",
-      bloodType: "O+",
-      idNo: "0000 0000",
-      phone: "+964 750 000 00 00",
-      email: "darbazrasul@gmail.com",
-      imageUrl:
-        "https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg?w=1800&t=st=1727515061~exp=1727515661~hmac=ebcbf1fb8ec570b56d75fe4c3609b106cb125ab6b012a8eb0ca0aaf390c0a7e7",
-    },
-  ];
+import axios from "axios";
+import { getCookie } from "../components/utils/helpers"; 
 
-  function VolunteerCard({ name, bloodType, idNo, phone, email, imageUrl }) {
+function OurTeam() {
+  const [teamMembers, setTeamMembers] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [language, setLanguage] = useState(getCookie("lang") || "en_US"); 
+
+  
+
+  // Fetch team members from API
+  useEffect(() => {
+    const fetchTeamMembers = async () => {
+      console.log("Fetching team members with language from cookie:", language);
+      try {
+        const response = await axios.get("http://my.admin.wardil.org/api/teams", {
+          headers: {
+            "x-api-key": "zJ6Z",
+            'X-Locale': language
+          },
+        });
+        setTeamMembers(response.data);
+        setLoading(false);
+      } catch (err) {
+        console.error("Error fetching team members:", err); // Debug
+        const errorMessage =
+          err.response?.data?.message || err.message || "Failed to fetch team members. Please try again later.";
+        setError(errorMessage);
+        setLoading(false);
+      }
+    };
+  
+    fetchTeamMembers();
+  }, [language]);
+  
+
+  function VolunteerCard({ name, position, blood, phone, email, image }) {
     return (
       <div className="text-star container mx-auto mb-4 rounded-lg bg-white p-6 px-4 shadow-md">
         <img
-          src={imageUrl}
+          src={`http://my.admin.wardil.org/storage/${image}`}
           alt={name}
           className="mx-auto mb-4 h-24 w-24 rounded-full"
         />
         <h3 className="mb-2 text-center text-xl font-semibold">{name}</h3>
-        <p className="mb-2 text-center text-gray-500">Volunteers</p>
+        <p className="mb-2 text-center text-gray-500">{position}</p>
         <div className="text-sm">
           <p>
-            <strong>Blood:</strong> {bloodType}
-          </p>
-          <p>
-            <strong>ID NO:</strong> {idNo}
+            <strong>Blood:</strong> {blood}
           </p>
           <p>
             <strong>Phone:</strong> {phone}
@@ -104,20 +68,27 @@ function OurTeam() {
       {/* Header */}
       <img src={hero2sm} alt="hero" />
 
-<TitleSection
-  title="Welcome to Our Community"
-  subtitle1="We are glad to have you here."
-  subtitle2="Explore our latest updates"
-/>
-
+      <TitleSection
+        title="Welcome to Our Community"
+        subtitle1="We are glad to have you here."
+        subtitle2="Explore our latest updates"
+      />
 
       {/* Volunteers Section */}
       <h2 className="mb-6 text-center text-3xl font-bold">Volunteers</h2>
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {volunteerData.map((volunteer, index) => (
-          <VolunteerCard key={index} {...volunteer} />
-        ))}
-      </div>
+      {loading ? (
+        <p className="text-center text-gray-500">Loading...</p>
+      ) : error ? (
+        <p className="text-center text-red-500">{error}</p>
+      ) : teamMembers.length === 0 ? (
+        <p className="text-center text-gray-500">No volunteers found.</p>
+      ) : (
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {teamMembers.map((volunteer) => (
+            <VolunteerCard key={volunteer.id} {...volunteer} />
+          ))}
+        </div>
+      )}
     </div>
   );
 }
