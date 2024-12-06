@@ -3,6 +3,8 @@ import eventDetailsPng from "../assets/images/EventDetails.png";
 import instructorImage from "../assets/images/Anu.png";
 import { FaStar, FaPlayCircle, FaUserGraduate } from "react-icons/fa";
 import { MdReviews } from "react-icons/md";
+import { Link } from "react-router-dom";
+
 
 function EventDetails() {
   return (
@@ -30,7 +32,9 @@ function EventDetails() {
           </div>
           <div className="mt-6">
             <button className="w-full md:w-auto inline-block bg-blue-600 text-white text-lg font-semibold px-8 py-4 rounded-lg shadow hover:bg-blue-700 transition duration-300">
-              Register Now
+              
+              <Link to="/event-details">Register Now</Link>
+
             </button>
           </div>
         </div>

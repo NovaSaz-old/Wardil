@@ -1,6 +1,7 @@
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import axios from "axios";
 
 // Define validation schema using Yup
 const validationSchema = Yup.object().shape({
@@ -8,7 +9,7 @@ const validationSchema = Yup.object().shape({
   email: Yup.string()
     .email("Invalid email format")
     .required("Email is required"),
-  address: Yup.string().required("Address is required"),
+  address: Yup.string(),
   gender: Yup.string().required("Gender is required"),
   occupation: Yup.string().required("Occupation is required"),
   dateOfBirth: Yup.date().required("Date of Birth is required"),
@@ -19,14 +20,70 @@ const validationSchema = Yup.object().shape({
   employmentStatus: Yup.string().required("Employment Status is required"),
   departments: Yup.array().min(1, "At least one department is required"),
   languages: Yup.array().min(1, "At least one language is required"),
-  cv: Yup.mixed().required("CV is required"),
+  cv: Yup.mixed()
+  .required("CV is required")
+  .test("fileType", "Only image files are accepted", (value) => {
+    return value && ["image/jpeg", "image/png"].includes(value.type);
+  }),
   picture: Yup.mixed().required("Picture is required"),
 });
 
 const MyForm = () => {
+  const handleSubmit = async (values, { setSubmitting, resetForm, setErrors }) => {
+    const formData = new FormData();
+    formData.append("full_name", values.fullName);
+        formData.append("email", values.email);
+    formData.append("address", values.address);
+    formData.append("gender", values.gender);
+    formData.append("occupation", values.occupation);
+    formData.append("date_of_birth", values.dateOfBirth);
+    formData.append("phone_number", values.phoneNumber);
+    formData.append("educational_qualification", values.educationalQualification);
+    formData.append("employment_status", values.employmentStatus);
+  
+    values.departments.forEach((department) => {
+      formData.append("departments[]", department);
+    });
+    
+    values.languages.forEach((language) => {
+      formData.append("languages[]", language);
+    });
+    
+    formData.append("cv_path", values.cv);
+    formData.append("picture_path", values.picture);
+
+  // Send a POST request to the server
+    try {
+      const response = await axios.post(
+        "http://my.admin.wardil.org/api/volunteer/register",
+        formData,
+        {
+          headers: {
+            "x-api-key": "zJ6Z",
+          },
+        }
+      );
+  
+      if (response.data.success) {
+        alert(response.data.message);
+        resetForm();
+      } else {
+        // Display specific validation errors
+        setErrors(response.data.errors);
+      }
+    } catch (error) {
+      alert("An error occurred while submitting the form.");
+      console.error(error);
+    } finally {
+      setSubmitting(false);
+    }
+  };
+  
   return (
     <div className="container mx-auto max-w-2xl p-6 bg-white shadow-lg rounded-lg">
-      <h2 className="text-2xl font-bold mb-4 text-blue-700">Registration Form</h2>
+      <h2 className="text-2xl font-bold mb-4 text-blue-700">
+        Registration Form
+      </h2>
       <p className="mb-4 text-gray-500">
         Please complete all fields unless otherwise indicated.
       </p>
@@ -48,12 +105,16 @@ const MyForm = () => {
           picture: null,
         }}
         validationSchema={validationSchema}
-        onSubmit={(values) => {
-          // Handle form submission here
-          console.log(values);
-        }}
+        onSubmit={handleSubmit}
       >
-        {({ touched, errors, isValid, setFieldValue }) => (
+        {({
+          touched,
+          errors,
+          isValid,
+          setFieldValue,
+          isSubmitting,
+          values,
+        }) => (
           <Form className="space-y-6">
             {/* Full Name */}
             <div className="relative">
@@ -66,9 +127,6 @@ const MyForm = () => {
                     : "border-gray-300"
                 }`}
               />
-              {touched.fullName && !errors.fullName && (
-                <span className="absolute right-3 top-9 text-green-500">✓</span>
-              )}
               <ErrorMessage
                 name="fullName"
                 component="div"
@@ -88,9 +146,6 @@ const MyForm = () => {
                     : "border-gray-300"
                 }`}
               />
-              {touched.email && !errors.email && (
-                <span className="absolute right-3 top-9 text-green-500">✓</span>
-              )}
               <ErrorMessage
                 name="email"
                 component="div"
@@ -109,9 +164,6 @@ const MyForm = () => {
                     : "border-gray-300"
                 }`}
               />
-              {touched.address && !errors.address && (
-                <span className="absolute right-3 top-9 text-green-500">✓</span>
-              )}
               <ErrorMessage
                 name="address"
                 component="div"
@@ -135,9 +187,6 @@ const MyForm = () => {
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
               </Field>
-              {touched.gender && !errors.gender && (
-                <span className="absolute right-3 top-9 text-green-500">✓</span>
-              )}
               <ErrorMessage
                 name="gender"
                 component="div"
@@ -156,9 +205,6 @@ const MyForm = () => {
                     : "border-gray-300"
                 }`}
               />
-              {touched.occupation && !errors.occupation && (
-                <span className="absolute right-3 top-9 text-green-500">✓</span>
-              )}
               <ErrorMessage
                 name="occupation"
                 component="div"
@@ -178,9 +224,6 @@ const MyForm = () => {
                     : "border-gray-300"
                 }`}
               />
-              {touched.dateOfBirth && !errors.dateOfBirth && (
-                <span className="absolute right-3 top-9 text-green-500">✓</span>
-              )}
               <ErrorMessage
                 name="dateOfBirth"
                 component="div"
@@ -199,9 +242,6 @@ const MyForm = () => {
                     : "border-gray-300"
                 }`}
               />
-              {touched.phoneNumber && !errors.phoneNumber && (
-                <span className="absolute right-3 top-9 text-green-500">✓</span>
-              )}
               <ErrorMessage
                 name="phoneNumber"
                 component="div"
@@ -225,18 +265,11 @@ const MyForm = () => {
                 }`}
               >
                 <option value="">Select Qualification</option>
-                {/* Add options here */}
                 <option value="High School">High School</option>
                 <option value="Bachelor's Degree">Bachelor's Degree</option>
                 <option value="Master's Degree">Master's Degree</option>
                 <option value="Ph.D.">Ph.D.</option>
               </Field>
-              {touched.educationalQualification &&
-                !errors.educationalQualification && (
-                  <span className="absolute right-3 top-9 text-green-500">
-                    ✓
-                  </span>
-                )}
               <ErrorMessage
                 name="educationalQualification"
                 component="div"
@@ -330,16 +363,26 @@ const MyForm = () => {
             </div>
 
             {/* CV Upload */}
+
             <div>
               <label className="text-gray-700 mb-1">Upload CV</label>
+
               <input
-                type="file"
-                name="cv"
-                onChange={(event) => {
-                  setFieldValue("cv", event.currentTarget.files[0]);
-                }}
-                className="w-full"
-              />
+  type="file"
+  name="cv"
+  accept="image/*"
+  onChange={(event) => {
+    setFieldValue("cv", event.currentTarget.files[0]);
+  }}
+  className="w-full"
+/>
+
+          
+              {values.cv && (
+                <p className="text-sm text-green-500 mt-1">
+                  Selected file: {values.cv.name}
+                </p>
+              )}
               <ErrorMessage
                 name="cv"
                 component="div"
@@ -353,11 +396,17 @@ const MyForm = () => {
               <input
                 type="file"
                 name="picture"
+                accept="image/*"
                 onChange={(event) => {
                   setFieldValue("picture", event.currentTarget.files[0]);
                 }}
                 className="w-full"
               />
+              {values.picture && (
+                <p className="text-sm text-green-500 mt-1">
+                  Selected file: {values.picture.name}
+                </p>
+              )}
               <ErrorMessage
                 name="picture"
                 component="div"
@@ -369,11 +418,13 @@ const MyForm = () => {
             <button
               type="submit"
               className={`w-full py-2 px-4 bg-blue-500 text-white rounded-md ${
-                isValid ? "hover:bg-blue-700" : "opacity-50 cursor-not-allowed"
+                isValid && !isSubmitting
+                  ? "hover:bg-blue-700"
+                  : "opacity-50 cursor-not-allowed"
               }`}
-              disabled={!isValid}
+              disabled={!isValid || isSubmitting}
             >
-              Submit
+              {isSubmitting ? "Submitting..." : "Submit"}
             </button>
           </Form>
         )}

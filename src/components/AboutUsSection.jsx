@@ -8,8 +8,6 @@ import volunteers from "../assets/images/volunteers.png";
 import FAQ from "./FAQ.jsx";
 import TestimonialCard from "../components/TestimonialCard.jsx";
 import { Link } from "react-router-dom";
-// import CardCarousel2 from "./CardCarousel2.jsx";
-// import NewsCard from "../components/NewsCard.jsx";
 
 export default function AboutUsSection() {
   return (
