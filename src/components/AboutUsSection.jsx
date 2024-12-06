@@ -8,6 +8,7 @@ import volunteers from "../assets/images/volunteers.png";
 import FAQ from "./FAQ.jsx";
 import TestimonialCard from "../components/TestimonialCard.jsx";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
 export default function AboutUsSection() {
   return (

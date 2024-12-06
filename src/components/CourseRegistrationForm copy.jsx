@@ -1,5 +1,3 @@
-
-
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
@@ -7,14 +5,14 @@ import axios from "axios";
 
 const handleSubmit = async (values, { setSubmitting, resetForm }) => {
   const formData = new FormData();
-  
+
   // Append each field to the FormData object
   formData.append("name", values.fullName);
   formData.append("email", values.email);
   formData.append("phone", values.phoneNumber);
   formData.append("address", values.address);
-  formData.append("gender", values.gender); 
-  formData.append("course_id", values.courseId); 
+  formData.append("gender", values.gender);
+  formData.append("course_id", values.courseId);
 
   try {
     const response = await axios.post(
@@ -25,7 +23,7 @@ const handleSubmit = async (values, { setSubmitting, resetForm }) => {
           // Ensure Axios handles the Content-Type automatically
           "x-api-key": "zJ6Z",
         },
-      }
+      },
     );
 
     if (response.data.success) {
@@ -42,7 +40,6 @@ const handleSubmit = async (values, { setSubmitting, resetForm }) => {
     setSubmitting(false);
   }
 };
-
 
 const CourseRegistrationForm = () => {
   const validationSchema = Yup.object().shape({
@@ -203,6 +200,3 @@ const CourseRegistrationForm = () => {
 };
 
 export default CourseRegistrationForm;
-
-
-

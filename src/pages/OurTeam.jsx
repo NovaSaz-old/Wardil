@@ -2,41 +2,44 @@ import React, { useState, useEffect } from "react";
 import TitleSection from "../components/itleSection";
 import hero2sm from "../assets/images/hero2sm.png";
 import axios from "axios";
-import { getCookie } from "../components/utils/helpers"; 
+import { getCookie } from "../components/utils/helpers";
+import Missions from "../components/Missions";
 
 function OurTeam() {
   const [teamMembers, setTeamMembers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [language, setLanguage] = useState(getCookie("lang") || "en_US"); 
-
-  
+  const [language, setLanguage] = useState(getCookie("lang") || "en_US");
 
   // Fetch team members from API
   useEffect(() => {
     const fetchTeamMembers = async () => {
       console.log("Fetching team members with language from cookie:", language);
       try {
-        const response = await axios.get("http://my.admin.wardil.org/api/teams", {
-          headers: {
-            "x-api-key": "zJ6Z",
-            'X-Locale': language
+        const response = await axios.get(
+          "http://my.admin.wardil.org/api/teams",
+          {
+            headers: {
+              "x-api-key": "zJ6Z",
+              "X-Locale": language,
+            },
           },
-        });
+        );
         setTeamMembers(response.data);
         setLoading(false);
       } catch (err) {
         console.error("Error fetching team members:", err); // Debug
         const errorMessage =
-          err.response?.data?.message || err.message || "Failed to fetch team members. Please try again later.";
+          err.response?.data?.message ||
+          err.message ||
+          "Failed to fetch team members. Please try again later.";
         setError(errorMessage);
         setLoading(false);
       }
     };
-  
+
     fetchTeamMembers();
   }, [language]);
-  
 
   function VolunteerCard({ name, position, blood, phone, email, image }) {
     return (
@@ -89,6 +92,7 @@ function OurTeam() {
           ))}
         </div>
       )}
+      <Missions />
     </div>
   );
 }
