@@ -8,14 +8,115 @@ import volunteers from "../assets/images/volunteers.png";
 import FAQ from "./FAQ.jsx";
 import TestimonialCard from "../components/TestimonialCard.jsx";
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 export default function AboutUsSection() {
+  const [fetchang, setFetchang] = useState(false);
+  const [missions, setMissions] = useState(null);
+  const [campaignData, setCampaignData] = useState(null);
+  const [courses, setCourses] = useState(null);
+  const [FAQs, setFAQs] = useState(null);
+
+  useEffect(() => {
+    ///---------------------------------
+    /// FAQs
+    ///---------------------------------
+    const fetchFAQs = async () => {
+      console.log("Fetching FAQs...");
+      try {
+        const responseFAQs = await axios.get(
+          "http://my.admin.wardil.org/api/faqs",
+          {
+            headers: {
+              "x-api-key": "zJ6Z",
+            },
+          },
+        );
+        setFAQs(responseFAQs.data);
+        console.log("faq data", responseFAQs.data);
+      } catch (err) {
+        console.error("Error fetching FAQs...", err);
+      }
+    };
+
+    ///---------------------------------
+    /// Courses
+    ///---------------------------------
+    const fetchCourses = async () => {
+      console.log("Fetching Courses...");
+      try {
+        const responseCourses = await axios.get(
+          "http://my.admin.wardil.org/api/courses",
+          {
+            headers: {
+              "x-api-key": "zJ6Z",
+            },
+          },
+        );
+        setCourses(responseCourses.data);
+        console.log("courses data: ", responseCourses.data);
+      } catch (err) {
+        console.error("Error fetching courses...", err);
+      }
+    };
+
+    ///---------------------------------
+    /// CampaignData
+    ///---------------------------------
+    const fetchCampaignData = async () => {
+      console.log("Fetching campaign data...");
+      try {
+        const responseCampaign = await axios.get(
+          "http://my.admin.wardil.org/api/campaigns",
+          {
+            headers: {
+              "x-api-key": "zJ6Z",
+            },
+          },
+        );
+        setCampaignData(responseCampaign.data);
+        console.log("campaign data: ", responseCampaign.data);
+      } catch (err) {
+        console.error("Error fetching campaign data...", err);
+      }
+    };
+
+    ///---------------------------------
+    /// Missions Components
+    ///---------------------------------
+    const fetchMissions = async () => {
+      console.log("Fetching Missions...");
+      try {
+        const responseMission = await axios.get(
+          "http://my.admin.wardil.org/api/missions",
+          {
+            headers: {
+              "x-api-key": "zJ6Z",
+            },
+          },
+        );
+        setMissions(responseMission.data);
+        console.log("mession data: ", responseMission.data);
+      } catch (err) {
+        console.error("Error fetching Missions: ", err);
+      }
+    };
+
+    // Call all the fetching functions
+    fetchFAQs();
+    fetchCourses();
+    fetchCampaignData();
+    fetchMissions();
+  }, []);
   return (
     <div>
-      <div className="grid w-full grid-cols-1 place-items-center gap-x-9 p-8 lg:grid-cols-3 lg:p-24">
+      <button onClick={() => setFetchang((prevState) => !prevState)}>
+        fatche
+      </button>
+      <div className="grid w-full grid-cols-1 place-items-center gap-x-9 p-8 lg:grid-cols-2 lg:p-24">
         {/** left col */}
-        <div className="grid grid-cols-1 text-center lg:text-left">
+        <div className="col-span-1 grid grid-cols-1 text-center lg:text-left">
           <h3
             style={{ textShadow: "1px 1px 2px rgba(0, 0, 0, 0.25)" }}
             className="mb-1 text-xl text-gray-800"
@@ -42,14 +143,17 @@ export default function AboutUsSection() {
 
         {/** mid col */}
         <div className="mt-8">
-          <SimpleCard />
-          <SimpleCard />
+          {missions
+            ? missions
+                .slice(0, 2)
+                .map((mission) => (
+                  <SimpleCard key={mission.id} missionData={mission} />
+                ))
+            : null}
         </div>
 
         {/** right col */}
-        <div className="mx-auto flex items-center">
-          <SimpleCard />
-        </div>
+        <div className="mx-auto flex items-center">{/* <SimpleCard /> */}</div>
       </div>
       {/** 2nd About us section with a side picture */}
       <div className="felx justify-center p-8 text-center md:p-28 2xl:text-left">
@@ -101,9 +205,17 @@ export default function AboutUsSection() {
           </p>
         </div>
         <div className="mt-4 flex flex-col place-items-center md:grid md:grid-cols-2 md:gap-12 lg:mt-8 lg:grid-cols-3 xl:gap-20">
+          {campaignData
+            ? campaignData
+                .slice(0, 3)
+                .map((campaign) => (
+                  <CampaignCard key={campaign.id} campaignInfo={campaign} />
+                ))
+            : null}
+
+          {/* <CampaignCard />
           <CampaignCard />
-          <CampaignCard />
-          <CampaignCard />
+          <CampaignCard /> */}
         </div>
         <button className="mx-auto mt-12 flex rounded bg-blue-600 px-4 py-2 text-center font-medium text-white hover:bg-blue-700">
           See more

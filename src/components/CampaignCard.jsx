@@ -1,18 +1,16 @@
 import { Link } from "react-router-dom";
 import cardImage from "../assets/images/cardImage.png";
 
-function CampaignCard() {
+function CampaignCard({ campaignInfo }) {
   return (
     <div className="m-2 w-80 rounded-lg bg-white shadow-md drop-shadow-md xl:w-96">
       <div className="p-4 xl:p-6">
         <img src={cardImage} className="mx-auto mb-4 w-full" />
         <h2 className="text-2xl font-semibold text-gray-900">
-          Campaign to provide books for children
+          {campaignInfo.title}
         </h2>
         <p className="mt-2 overflow-hidden text-gray-700">
-          We focus on child education are critical in ensuring that children
-          have access to quality education and the opportunity to reach their
-          full potential. Every children needs healthy foods.
+          {campaignInfo.details}
         </p>
       </div>
       <div className="flex-col items-center justify-between bg-gray-50 p-3">
@@ -23,11 +21,15 @@ function CampaignCard() {
           <div className="mt-4 flex items-center justify-between">
             <p className="font-semibold text-gray-900">
               Goals:
-              <span className="ml-2 font-normal text-gray-700">$25000</span>
+              <span className="ml-2 font-normal text-gray-700">
+                {campaignInfo.goals}
+              </span>
             </p>
             <p className="font-semibold text-gray-900">
               Raised:
-              <span className="ml-2 font-normal text-gray-700">$21000</span>
+              <span className="ml-2 font-normal text-gray-700">
+                {campaignInfo.raised}
+              </span>
             </p>
           </div>
           <button className="mt-4 w-full rounded bg-blue-600 px-4 py-2 text-lg font-medium text-white hover:bg-blue-700">
