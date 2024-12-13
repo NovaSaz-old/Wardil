@@ -268,8 +268,16 @@ export default function AboutUsSection() {
         </div>
 
         <div className="my-8 grid gap-4 sm:p-8 lg:grid-cols-2 lg:gap-10 lg:p-0 2xl:gap-24">
-          <EventCard />
-          <EventCard />
+          {courses
+            ? courses
+                .slice(0, 2)
+                .map((course) => (
+                  <EventCard key={course.id} courseData={course} />
+                ))
+            : null}
+
+          {/* <EventCard />
+          <EventCard /> */}
         </div>
       </div>
       <FAQ />
