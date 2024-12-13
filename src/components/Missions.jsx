@@ -13,8 +13,7 @@ const Missions = () => {
           "http://my.admin.wardil.org/api/missions",
           {
             headers: {
-              "X-Locale": "en_US", // Set the desired locale here
-              Authorization: "zJ6Z", // Include the API key
+              // Include the API key
               "x-api-key": "zJ6Z",
             },
           },
