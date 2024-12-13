@@ -5,7 +5,7 @@ const aboutService = {
     try {
       console.log("-----------------"+lang);
       const response = await axios.get(
-        `http://my.admin.wardil.org/api/about_us`,
+        `https://my.admin.wardil.org/api/about_us`,
         {
           headers: {
             "x-api-key": "zJ6Z", 
